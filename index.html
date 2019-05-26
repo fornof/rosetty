@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/esprima/2.7.3/esprima.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+<div id="app">
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Language: Left Side 
+  </button>
+    <div id="ddLeft" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a v-for="language in this.getLanguages()" class="dropdown-item" v-on:click="this.console.log($event.target)">{{ language }}</a>
+       <!-- <a class="dropdown-item" href="#">{{ language }}</a> -->
+    </div>
+</div>
+<div class = "dropdown">
+  <button id="ddRight" style="float:right" class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Language: Right Side 
+  </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div>
+<!-- esprima required only for !!js/function -->
+<!-- <div class="w3-bar w3-black language-selection">
+  <button class="w3-bar-item w3-button" onclick="openCity('London')">London</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Paris</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Tokyo</button>
+  <button style="float:right" class="w3-bar-item w3-button" onclick="openCity('Denver')">Denver</button>
+  <button style="float:right" class="w3-bar-item w3-button" onclick="openCity('Mobile')">Mobile</button>
+  <button style="float:right" class="w3-bar-item w3-button" onclick="openCity('Hattiesburg')">Hattiesburg</button>
+</div>-->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col fill">
+      <div id="London" class="city">
+            <h2>London</h2>
+            <p> London is the place of Dr Who.</p>
+      </div>
+    </div>
+    <div class="col">
+       <div id="Denver" class="city" >
+            <h2>Denver</h2>
+            <p>Denver is the capital of Colorado.</p>
+        </div>
+    </div>  
+  </div>
+</div>
+
+    <div class = "container">
+       <div class="row">
+            <div class="col-md fill">
+            <div id="London" class="city first-language">
+                    <h2>London2</h2>
+                    <p> London is the place of Dr Who.</p>
+                </div>
+            </div>
+             
+            <div class="col-md">
+            <div id="Denver" class="city second-language" >
+                    <h2>Denver2</h2>
+                    <p>Denver is the capital of Colorado.</p>
+                </div>
+            </div>
+       
+        </div>
+   
+    </div>
+
+
+ <ul id="example-1">
+        <li v-for="language in doc">
+            {{ language }}
+        </li>
+    </ul> 
+</div>
+
+
+<script type="text/javascript">
+function openCity(cityName) {
+  var i;
+  var x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none"; 
+  }
+  document.getElementById(cityName).style.display = "block"; 
+}
+ function getLanguages()
+        {
+            var result = []
+            var lang = doc['rosetty']
+            for(language in lang){ var mylang = lang[language]["language"]; 
+                for(langName in mylang){
+                var myName = mylang[langName]['language_name']
+                    if(myName !== undefined && myName != 'global'){
+                    result.push(myName);
+
+                    }
+                }
+            }
+            console.log(result)
+        langs = result;
+        return result;
+        }
+
+var doc = null;
+var langs = null;
+ fetch("/sections.yaml").then(response =>response.text()).then(data=>{ 
+    doc = jsyaml.load(data);
+   
+    return doc
+} ).then( doc => {
+    console.log(doc)
+    var app = new Vue({
+  el: '#app',
+  methods: 
+  {
+
+  
+  },
+  data: {
+    doc: doc,
+    langs: []
+  }
+    })
+}
+)
+
+
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

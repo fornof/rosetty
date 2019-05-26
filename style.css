@@ -1,0 +1,16 @@
+.language-selection{
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+}
+.fill {
+    border-right: 5px solid red;
+    /* background:#AA3344 */
+}
+
+.first-language {
+    background:#777777;
+}
+.second-language {
+    background:#999999;
+}
