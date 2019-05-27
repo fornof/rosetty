@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="/node_modules/prismjs/themes/prism.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/esprima/2.7.3/esprima.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/yamljs/0.3.0/yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js"></script>
 
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="syntaxhi.css">
@@ -19,6 +19,7 @@
     args['useRight'] = true;
     args['right'] = "javascript";
     args['left']= "javascript";
+    args['line_count'] = 50;
     var lookup ={};
     
     function initialize(){
@@ -54,6 +55,7 @@
      //console.log(args)
      updateLanguage(id)
  }
+ 
  function updateLanguage(id){
     var side = id;
     var language = args[id]
@@ -70,7 +72,7 @@
             }
 
             section_fill.innerHTML = getHTML(langs[i],side )
-
+            section_fill.getElementById(offsetHeight;
         
        
     } 
@@ -82,18 +84,25 @@
              continue;
          }
         resultHTML +=
-         `<h2>${i}</h2><br/>
-         <p>${highlight(language_sections[i], side)}</p>
+         `<div id="${i}-${args[side]}-${side}">
+            <h2>${i}</h2><br/>
+            <p>${highlight(language_sections[i], side)}</p>
+          </div>
           `
           
      }
      return resultHTML;
  }
+ function getLineCount(section){
+     for(i in section){
+        
+     }
+ }
  function highlight(language_section,side){
      //this doesn't work because pre/code mess with my formatting
      //return `<pre><code class="language-${language}"> ${language_section}></code></pre>`
      var language = args[side]
-     return `<code class="code-default"> ${format(language_section)}></code>`
+     return `${format(language_section)}`
  }
  function format(insert){
      if(typeof(insert) != 'string'){
@@ -134,41 +143,31 @@
  }
  function makeSection(title, instructions){
  var inHTML = `
-<div class="container" width="100%">
-        <div class="row">
-            <div class= "col" align="left">
-                <h2> ${capitalize(title)} : Instructions</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div align="left" class= "col">
-                <p> <pre>${instructions}</pre></p>
-            </div>
-        </div>
-    
-</div>
- 
-
-    <div class = "container">
-       <div class="row" >
-            <div width="50%" class="col-md fill">
-                <div id="${title}-left" class="city first-language">
-                        <h2>London2</h2>
-                        <p> London is the place of Dr Who.</p>
-                </div>
-            </div>
-        
-                
-            <div width="50%" class="col-md right">
-                <div id="${title}-right" class="city second-language" >
-                        <h2>Denver2</h2>
-                        <p>Denver is the capital of Colorado.</p>                
-                </div>
-            </div>
-        
-           
+<div class="container">
+    <div class="row">
+        <div class= "col" align="left">
+            <h2> ${capitalize(title)} : Instructions</h2>
         </div>
     </div>
+    <div class="row">
+        <div align="left" class= "col">
+            <p> ${instructions}</p>
+        </div>
+    </div>
+    
+    <div class="row" >
+        <div class="col-md-6 fill ">
+            <div id="${title}-left" class="first-language ">
+            </div>
+        </div>   
+            
+        <div  class="col-md-6 right">
+            <div id="${title}-right" class="second-language" >           
+            </div>
+        </div>
+        
+    </div>
+</div>
 
 `
     document.getElementById("global-container").innerHTML += inHTML;
@@ -191,7 +190,7 @@ var langs = null;
 
 function oninit(){
     fetch("/rendered-sections.yaml").then(response =>response.text()).then(data=>{ 
-        doc =  YAML.parse(data);//jsyaml.load(data);
+        doc =  jsyaml.load(data);//jsyaml.load(data);
     
         return doc
     } ).then( doc => {

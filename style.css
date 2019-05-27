@@ -3,69 +3,67 @@
     position: fixed;
     z-index: 1000;
 }
-.language-selection-right{
+/* .language-selection-right{
     align-content:right;
     position: fixed;
    
     z-index: 1000;
-}
+} */
 .fill {
     border-right: 5px solid red;
     /* background:#AA3344 */
 }
-.container{ 
+/* .container{ 
     float:left; 
     width:100%; 
-}
-.col
+} */
+/* .col
 {
     position:relative;
     display:inline;
-}
-.flex-container {
+} */
+/* .flex-container {
     display: flex;
-  }
+  } */
   
-.fill-width {
+/* .fill-width {
     flex: 1;
- }
-table {
-    width:50%;
-}
+ } */
+
 .first-language {
     background:#dddddd;
 }
 .second-language {
     background:#cccccc;
 }
-
+/* 
 .aParent div {
     float: center;
     clear: none; 
+} */
+.box{
+    display: flex;
+    width:50%; /* or whatever width you want. */
+    max-width:50%; /* or whatever width you want. */
+    flex-basis: 0;
+    flex-grow: 1;
 }
 pre {   
-    width:inherit;
+   
+       
+        overflow-y: scroll;
         overflow-x: auto;
-        overflow: auto;
+        overflow: scroll;
         white-space: -moz-pre-wrap;
         white-space: -pre-wrap;
         white-space: -o-pre-wrap;
-        word-wrap: break-word;
+        white-space:pre-wrap;
+        word-wrap: break-all;
      }
 .code-default {
     color:darkgreen;
 }
-.tag {
-    display: inline;
-    padding: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    text-align: inherit;
-    vertical-align: inherit;
-    border-radius: inherit;
-    font-weight: inherit;
-    white-space: inherit;
-}
+
 .findme{ 
     border-style: solid;
     border-color: green;

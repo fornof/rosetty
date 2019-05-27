@@ -1,0 +1,392 @@
+---
+languages:
+- language_name: global
+  sections:
+  - title: variables
+    instructions:
+    - "variables can be ATOMIC TYPES, or they can be Objects which hold Atomics.\n\
+      Atomic - meaning they cannot be split into smaller types\nAtomic types are int,\
+      \ double, float, char , long, half, short\n, they must be cast in Python and\
+      \ javascript because these are non typed \nor autotyped languages \ngoogle search\
+      \ \"type casting in {{language}}\".\n"
+  - title: dict_list
+    instructions:
+    - "Dictionaries are key value pairs that are in an unsorted list. If a key is\
+      \ given such as \"harry\",\na value (or None/undefined type) will be presented.\
+      \ These provide an easy way of passing data in web applications.\nJSON is the\
+      \ standard for getting dictionaries into strings and parsingn strings into JSON.\
+      \ \nLists use indexes to call the value. They are ordered, and sorting is important.\
+      \ \n"
+  - title: functions
+    instructions:
+    - "Functions are also known as methods. These are generally interchangeable -\
+      \ someone will know what you mean- even if\na \"method\" is correct form for\
+      \ one language or another. \nfunctions hold variables and can call other functions.\
+      \ They can have input variables sent in from other functions\n.They sometimes\
+      \ return a variable with the keyword \"return\" and can send back a variable\
+      \ to the function that called this one.\nfunctions are in {} parens in javascript,\
+      \ and tabs /spaces in python.\n"
+- language_name: javascript
+  sections:
+  - title: variables
+    example_header:
+    - '<p>Variables in JavaScript  # this is for people to read</p>'
+    example:
+    - <div class="code"><div class="highlight"><pre><span></span><span class="kd">let</span>
+      <span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><br
+      /><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span>
+      <span class="mi">1</span><br /><span class="kd">var</span> <span class="nx">foo</span>
+      <span class="o">=</span> <span class="k">new</span> <span class="nx">MyClass</span><span
+      class="p">()</span><br /><span class="c1">//They are called like this;</span><br
+      /><span class="nx">foo</span> <span class="p">;</span><br /></pre></div><br
+      /></div>
+    example_activity:
+    - "<p>Find 10 variables in javascript\nWrite 5 variables in javascript that reference\
+      \ different\n     things (or copy \npaste from code you find on github)</p>"
+    example_answer:
+    - <div class="code"><div class="highlight"><pre><span></span><span class="kd">var</span>
+      <span class="nx">anna</span> <span class="o">=</span> <span class="s2">&quot;happy&quot;</span><br
+      /><span class="kd">var</span> <span class="nx">elsa</span> <span class="o">=</span>
+      <span class="s2">&quot;moody&quot;</span><br /><span class="kd">var</span> <span
+      class="nx">annaAge</span> <span class="o">=</span> <span class="mi">18</span><br
+      /><span class="kd">var</span> <span class="nx">elsaAge</span> <span class="o">=</span>
+      <span class="mi">20</span><br /><span class="kd">var</span> <span class="nx">olaf</span>
+      <span class="o">=</span> <span class="s2">&quot;snowman&quot;</span><br /><span
+      class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span
+      class="k">new</span> <span class="nx">MyClass</span><span class="p">()</span><br
+      /></pre></div><br /></div>
+    example_reading:
+    - '<p>google search "javascript docs variables"
+
+      google search "JSON in javascript from string"</p>'
+  - title: dict_list
+    example_header:
+    - <p>Dictionaries and Lists in Javascript</p>
+    example:
+    - '<div class="code"><div class="highlight"><pre><span></span><span class="c1">//javascript
+      lists look like:  </span><br /><span class="kd">var</span> <span class="nx">myvar</span>
+      <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span
+      class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span
+      class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span
+      class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span
+      class="p">]</span><br /><span class="c1">//They are called like:  </span><br
+      /><span class="nx">myvar</span><span class="p">[</span><span class="mi">0</span><span
+      class="p">]</span> <span class="c1">// returns 1,</span><br /><span class="nx">myvar</span><span
+      class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">//
+      returns 2</span><br /><span class="c1">//javascript dictionaries look like:
+      </span><br /><span class="kd">var</span> <span class="nx">dictionary</span>
+      <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span
+      class="o">:</span><span class="s2">&quot;bar&quot;</span> <span class="p">,</span>
+      <span class="s2">&quot;elsa&quot;</span> <span class="o">:</span> <span class="s2">&quot;moody&quot;</span>
+      <span class="p">,</span> <span class="s2">&quot;inner&quot;</span><span class="o">:</span><br
+      />    <span class="p">{</span><span class="s2">&quot;inside&quot;</span><span
+      class="o">:</span><span class="s2">&quot;cozy&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;list&quot;</span><span class="o">:</span><span class="p">[</span><span
+      class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span
+      class="mi">3</span><span class="p">]}</span><br /><span class="c1">//They are
+      called like:</span><br /><span class="nx">dictionary</span><span class="p">[</span><span
+      class="s2">&quot;elsa&quot;</span><span class="p">]</span> <span class="c1">//
+      returns &quot;moody&quot;</span><br /><span class="nx">dictionary</span><span
+      class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">]</span>
+      <span class="c1">// returns &quot;bar&quot;</span><br /><span class="nx">dictionary</span><span
+      class="p">[</span><span class="s2">&quot;inner&quot;</span><span class="p">][</span><span
+      class="s2">&quot;inside&quot;</span><span class="p">]</span> <span class="c1">//
+      {&quot;inside&quot;:&quot;cozy&quot;} \#retur</span><br />    <span class="c1">//#ns
+      cozy</span><br /><span class="kd">var</span> <span class="nx">mylist</span>
+      <span class="o">=</span> <span class="nx">dictionary</span><span class="p">[</span><span
+      class="s2">&quot;list&quot;</span><span class="p">]</span> <span class="c1">//returns
+      [1,2,3]</span><br /><span class="nx">mylist</span><span class="p">[</span><span
+      class="mi">0</span><span class="p">]</span> <span class="c1">//returns 1   </span><br
+      /></pre></div><br /></div>'
+    example_activity:
+    - '<p>Find 10 examples of lists and dictionaries called and set
+
+      write 2 dictionaries or lists.          </p>'
+    example_answer:
+    - '<p>in javascript:</p>
+
+      <div class="code"><div class="highlight"><pre><span></span><span class="kd">var</span>
+      <span class="nx">elsa</span> <span class="o">=</span> <span class="p">{</span><span
+      class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;elsa&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;mood&quot;</span> <span class="o">:</span>
+      <span class="s2">&quot;happy&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span>
+      <span class="o">:</span><br />    <span class="s2">&quot;princess&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;friends&quot;</span><span class="o">:</span>
+      <span class="nx">None</span><span class="p">}</span><br /><span class="kd">var</span>
+      <span class="nx">anna</span> <span class="o">=</span> <span class="p">{</span><span
+      class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;anna&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;mood&quot;</span> <span class="o">:</span>
+      <span class="s2">&quot;moody&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span><br
+      />    <span class="o">:</span> <span class="s2">&quot;princess&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;friends&quot;</span><span class="o">:</span><span
+      class="p">[</span><span class="s2">&quot;mom&quot;</span><span class="p">,</span><span
+      class="s2">&quot;dad&quot;</span><span class="p">,</span><span class="s2">&quot;olaf&quot;</span><span
+      class="p">,</span><span class="s2">&quot;sven&quot;</span><span class="p">]}</span><br
+      /></pre></div><br /></div>'
+  - title: functions
+    example_header: <p>None</p>
+    example:
+    - <div class="code"><div class="highlight"><pre><span></span><span class="kd">var</span>
+      <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Robert&quot;</span><br
+      /><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span>
+      <span class="mi">28</span><br /><span class="nx">readMyAgeAndName</span><span
+      class="p">(</span><span class="nx">name</span><span class="p">,</span> <span
+      class="nx">age</span><span class="p">);</span><br /><span class="nx">readMyAgeAndName</span><span
+      class="p">(</span><span class="s2">&quot;robert&quot;</span><span class="p">,</span>
+      <span class="mi">28</span><span class="p">)</span><br /><span class="c1">//in
+      javscript, this is what a function looks like :</span><br /><span class="kd">function</span>
+      <span class="nx">readMyAgeAndName</span><span class="p">(</span><span class="nx">name</span><span
+      class="p">,</span> <span class="nx">age</span><span class="p">){</span><br />  <span
+      class="nx">console</span><span class="p">.</span><span class="nx">log</span><span
+      class="p">(</span><span class="s2">&quot;reading...&quot;</span><span class="p">)</span><br
+      />  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span
+      class="p">(</span><span class="nx">name</span> <span class="o">+</span><span
+      class="s2">&quot; &quot;</span> <span class="o">+</span>  <span class="nx">str</span><span
+      class="p">(</span><span class="nx">age</span><span class="p">)</span> <span
+      class="p">)</span><br />  <span class="k">return</span> <span class="kc">true</span><br
+      /><span class="p">}</span><br /></pre></div><br /></div>
+    example_activity:
+    - "<p>in javascript , find 10 function definitions and 10 function\n     calls.\n\
+      in javascript,  given :</p>\n<div class=\"code\"><div class=\"highlight\"><pre><span></span><span\
+      \ class=\"kd\">var</span> <span class=\"nx\">elsa</span> <span class=\"o\">=</span>\
+      \ <span class=\"p\">{</span><span class=\"s2\">&quot;name&quot;</span> <span\
+      \ class=\"o\">:</span> <span class=\"s2\">&quot;elsa&quot;</span><span class=\"\
+      p\">,</span> <span class=\"s2\">&quot;mood&quot;</span> <span class=\"o\">:</span>\
+      \ <span class=\"s2\">&quot;happy&quot;</span><span class=\"p\">,</span> <span\
+      \ class=\"s2\">&quot;profession&quot;</span><br />     <span class=\"o\">:</span>\
+      \ <span class=\"s2\">&quot;princess&quot;</span><span class=\"p\">,</span> <span\
+      \ class=\"s2\">&quot;friends&quot;</span><span class=\"o\">:</span> <span class=\"\
+      p\">[]}</span><br /><span class=\"kd\">var</span> <span class=\"nx\">anna</span>\
+      \ <span class=\"o\">=</span> <span class=\"p\">{</span><span class=\"s2\">&quot;name&quot;</span>\
+      \ <span class=\"o\">:</span> <span class=\"s2\">&quot;anna&quot;</span><span\
+      \ class=\"p\">,</span> <span class=\"s2\">&quot;mood&quot;</span> <span class=\"\
+      o\">:</span> <span class=\"s2\">&quot;moody&quot;</span><span class=\"p\">,</span>\
+      \ <span class=\"s2\">&quot;professio</span><br /><span class=\"s2\">  n&quot;</span>\
+      \ <span class=\"o\">:</span> <span class=\"s2\">&quot;princess&quot;</span><span\
+      \ class=\"p\">,</span> <span class=\"s2\">&quot;friends&quot;</span><span class=\"\
+      o\">:</span><span class=\"p\">[</span><span class=\"s2\">&quot;mom&quot;</span><span\
+      \ class=\"p\">,</span><span class=\"s2\">&quot;dad&quot;</span><span class=\"\
+      p\">,</span><span class=\"s2\">&quot;olaf&quot;</span><span class=\"p\">,</span><span\
+      \ class=\"s2\">&quot;sven&quot;</span><span class=\"p\">]}</span><br /></pre></div><br\
+      \ /></div>\n\n<p>write a function to print out how many friends elsa and anna\
+      \ have</p>"
+    example_answer:
+    - '<p>in javascript, the answer to the activity is:</p>
+
+      <div class="code"><div class="highlight"><pre><span></span><span class="kd">function</span>
+      <span class="nx">personReader</span><span class="p">(</span><span class="nx">person</span><span
+      class="p">){</span><br /><span class="kd">var</span> <span class="nx">friend_count</span><span
+      class="o">=</span> <span class="nx">person</span><span class="p">[</span><span
+      class="s2">&quot;friends&quot;</span><span class="p">].</span><span class="nx">length</span><br
+      /><span class="k">if</span> <span class="p">(</span><span class="nx">friend_count</span>
+      <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span><br
+      />  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span
+      class="p">(</span><span class="nx">person</span><span class="p">[</span><span
+      class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span>
+      <span class="s2">&quot; is cool\n and &quot;</span> <span class="o">+</span><br
+      />    <span class="nx">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span
+      class="p">]</span> <br /><span class="o">+</span><span class="s2">&quot; has
+      &quot;</span> <span class="o">+</span>  <span class="nx">friend_count</span>
+      <span class="o">+</span><span class="s2">&quot; friends&quot;</span> <span class="p">)</span><br
+      /><span class="p">}</span><br /><span class="k">else</span><span class="p">{</span><br
+      />  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span
+      class="p">(</span><span class="nx">person</span><span class="p">[</span><span
+      class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span>
+      <span class="s2">&quot; is cool\n However, sadly to say </span><br /><span class="s2">  &quot;</span>
+      <span class="o">+</span> <span class="nx">person</span><span class="p">[</span><span
+      class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span><span
+      class="s2">&quot; has &quot;</span> <span class="o">+</span><span class="nx">friend_count</span>
+      <span class="o">+</span><span class="s2">&quot; friends&quot;</span> <span class="p">)</span><br
+      />  <span class="p">}</span><br /><span class="p">}</span> <br /></pre></div><br
+      /></div>'
+- language_name: python
+  sections:
+  - title: variables
+    example_header: <p>variables are like this in Python:</p>
+    example:
+    - <div class="code"><div class="highlight"><pre><span></span><span class="n">foo</span>
+      <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><br /><span
+      class="n">foo</span> <span class="o">=</span> <span class="mi">1</span><br /><span
+      class="n">foo</span> <span class="o">=</span> <span class="n">MyClass</span><span
+      class="p">()</span><br />\<span class="c1">#They are called like this:</span><br
+      /><span class="n">foo</span><br /></pre></div><br /></div>
+    example_activity:
+    - "<p>Find 21 variables in Python\nWrite 5 variables in Python that reference\
+      \ different things (or\n     copy \npaste from code you find on github)</p>"
+    example_answer:
+    - <div class="code"><div class="highlight"><pre><span></span><span class="n">anna</span>
+      <span class="o">=</span> <span class="s2">&quot;happy&quot;</span><br /><span
+      class="n">elsa</span> <span class="o">=</span> <span class="s2">&quot;moody&quot;</span><br
+      /><span class="n">annaAge</span> <span class="o">=</span> <span class="mi">18</span><br
+      /><span class="n">elsaAge</span> <span class="o">=</span> <span class="mi">20</span><br
+      /><span class="n">olaf</span> <span class="o">=</span> <span class="s2">&quot;snowman&quot;</span><br
+      /><span class="n">foo</span> <span class="o">=</span> <span class="n">MyClass</span><span
+      class="p">()</span><br /></pre></div><br /></div>
+    example_reading:
+    - <p>google search "python docs variables"</p>
+  - title: dict_list
+    example_header: <p>None</p>
+    example:
+    - '<div class="code"><div class="highlight"><pre><span></span><span class="n">python</span>
+      <span class="n">lists</span> <span class="n">look</span> <span class="n">like</span><span
+      class="p">:</span>  <br /><span class="n">myvar</span> <span class="o">=</span>
+      <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span
+      class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span
+      class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span
+      class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span><br
+      /><span class="c1">#They are called like: </span><br /> <span class="n">myvar</span><span
+      class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#
+      returns 1,</span><br /> <span class="n">myvar</span><span class="p">[</span><span
+      class="mi">1</span><span class="p">]</span> <span class="c1"># returns 2</span><br
+      /><span class="c1">#python dictionaries look like: </span><br /><span class="n">dictionary</span>
+      <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span
+      class="p">:</span><span class="s2">&quot;bar&quot;</span> <span class="p">,</span>
+      <span class="s2">&quot;elsa&quot;</span> <span class="p">:</span> <span class="s2">&quot;moody&quot;</span>
+      <span class="p">,</span> <span class="s2">&quot;inner&quot;</span><span class="p">:</span><br
+      />  <span class="p">{</span><span class="s2">&quot;inside&quot;</span><span
+      class="p">:</span><span class="s2">&quot;cozy&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;list&quot;</span><span class="p">:[</span><span class="s2">&quot;foo&quot;</span><span
+      class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span
+      class="p">]}</span><br /><span class="n">They</span> <span class="n">are</span>
+      <span class="n">called</span> <span class="n">like</span><span class="p">:</span><br
+      /><span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;elsa&quot;</span><span
+      class="p">]</span> <span class="c1"># returns &quot;moody&quot;</span><br /><span
+      class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span
+      class="p">]</span> <span class="c1">#returns bar</span><br /><span class="n">dictionary</span><span
+      class="p">[</span><span class="s2">&quot;inner&quot;</span><span class="p">][</span><span
+      class="s2">&quot;inside&quot;</span><span class="p">]</span> <span class="c1">#
+      {&quot;inside&quot;:&quot;cozy&quot;} \#retur</span><br />   <span class="c1">#ns
+      cozy</span><br /><span class="n">mylist</span> <span class="o">=</span> <span
+      class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span
+      class="p">]</span> <span class="c1">#returns [1,2,3]</span><br /><span class="n">mylist</span><span
+      class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#
+      returns foo</span><br /><span class="c1"># google search Char array (or string)
+      # todo , provide fu</span><br /> <span class="c1">#rther reading     </span><br
+      /></pre></div><br /></div>'
+    example_activity:
+    - '<p>Find 10 examples of lists and dictionaries called and set
+
+      write 2 dictionaries or lists.</p>'
+    example_answer:
+    - <div class="code"><div class="highlight"><pre><span></span><span class="n">elsa</span>
+      <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span>
+      <span class="p">:</span> <span class="s2">&quot;elsa&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;mood&quot;</span> <span class="p">:</span> <span class="s2">&quot;happy&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;profession&quot;</span> <span class="p">:</span><br
+      />     <span class="s2">&quot;princess&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;friends&quot;</span><span class="p">:</span> <span class="p">[]}</span><br
+      /><span class="n">anna</span> <span class="o">=</span> <span class="p">{</span><span
+      class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;anna&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;mood&quot;</span> <span class="p">:</span>
+      <span class="s2">&quot;moody&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span><br
+      />   <span class="p">:</span> <span class="s2">&quot;princess&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;friends&quot;</span><span class="p">:[</span><span
+      class="s2">&quot;mom&quot;</span><span class="p">,</span><span class="s2">&quot;dad&quot;</span><span
+      class="p">,</span><span class="s2">&quot;olaf&quot;</span><span class="p">,</span><span
+      class="s2">&quot;sven&quot;</span><span class="p">]}</span><br /></pre></div><br
+      /></div>
+    example_reading:
+    - '<p>google search: is python char list a string?
+
+      google search: "get() instead of calling brackets in python" </p>'
+  - title: functions
+    example_header:
+    - '<p>Functions look like:                 </p>'
+    example:
+    - '<p>''</p>
+
+      <div class="code"><div class="highlight"><pre><span></span><span class="n">name</span>
+      <span class="o">=</span> <span class="s2">&quot;Robert&quot;</span><br /><span
+      class="n">age</span> <span class="o">=</span> <span class="mi">28</span><br
+      /><span class="n">read_my_age_and_name</span><span class="p">(</span><span class="n">name</span><span
+      class="p">,</span> <span class="n">age</span> <span class="p">)</span> <span
+      class="c1"># calls the function with name</span><br /> <span class="c1"># and
+      age</span><br /><span class="n">read_my_age_and_name</span><span class="p">(</span><span
+      class="s2">&quot;robert&quot;</span><span class="p">,</span> <span class="mi">28</span>
+      <span class="p">)</span> <span class="c1"># calls with &quot;robert&quot;</span><br
+      />  <span class="c1"># as the first variable, and 28 as the second</span><br
+      /><span class="n">read_my_age_and_name</span><span class="p">(</span><span class="n">age</span><span
+      class="o">=</span> <span class="mi">28</span><span class="p">,</span> <span
+      class="n">name</span><span class="o">=</span><span class="s2">&quot;robert&quot;</span><span
+      class="p">)</span> <br /><span class="c1">#positionally calls function with
+      input variables set to </span><br /> <span class="c1">#needed input</span><br
+      /><span class="c1"># in python, this is what a function looks like :</span><br
+      /><span class="k">def</span> <span class="nf">read_my_age_and_name</span><span
+      class="p">(</span><span class="n">name</span><span class="p">,</span> <span
+      class="n">age</span><span class="p">):</span><br />    <span class="k">print</span><span
+      class="p">(</span><span class="s2">&quot;reading...&quot;</span><span class="p">)</span><br
+      />    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span
+      class="p">,</span> <span class="n">age</span> <span class="p">)</span><br />    <span
+      class="k">return</span> <span class="bp">True</span><br /></pre></div><br /></div>
+
+
+      <p>''</p>'
+    example_activity:
+    - '<p>in python , find 10 function definitions and 10 function calls.
+
+      in python , write a function that prints an input variable
+
+      in python,  given :</p>
+
+      <div class="code"><div class="highlight"><pre><span></span><span class="n">elsa</span>
+      <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span>
+      <span class="p">:</span> <span class="s2">&quot;elsa&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;mood&quot;</span> <span class="p">:</span> <span class="s2">&quot;happy&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;profession&quot;</span> <span class="p">:</span><br
+      />     <span class="s2">&quot;princess&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;friends&quot;</span><span class="p">:</span> <span class="p">[]}</span><br
+      /><span class="n">anna</span> <span class="o">=</span> <span class="p">{</span><span
+      class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;anna&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;mood&quot;</span> <span class="p">:</span>
+      <span class="s2">&quot;moody&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span><br
+      />   <span class="p">:</span> <span class="s2">&quot;princess&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;friends&quot;</span><span class="p">:[</span><span
+      class="s2">&quot;mom&quot;</span><span class="p">,</span><span class="s2">&quot;dad&quot;</span><span
+      class="p">,</span><span class="s2">&quot;olaf&quot;</span><span class="p">,</span><span
+      class="s2">&quot;sven&quot;</span><span class="p">]}</span><br /></pre></div><br
+      /></div>
+
+
+      <pre><code>write a function to print out how many friends elsa and anna have
+
+      </code></pre>'
+    example_answer:
+    - <div class="code"><div class="highlight"><pre><span></span><span class="k">def</span>
+      <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span
+      class="p">):</span><br />  <span class="k">print</span><span class="p">(</span><span
+      class="n">bar</span><span class="p">)</span>\<span class="n">n</span>\<span
+      class="n">n</span><br /><span class="n">anna</span> <span class="o">=</span>
+      <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span>
+      <span class="s2">&quot;anna&quot;</span><span class="p">,</span> <span class="s2">&quot;mood&quot;</span>
+      <span class="p">:</span> <span class="s2">&quot;moody&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;profession&quot;</span> <span class="p">:</span><br />  <span
+      class="s2">&quot;princess&quot;</span><span class="p">,</span> <span class="s2">&quot;friends&quot;</span><span
+      class="p">:[</span><span class="s2">&quot;mom&quot;</span><span class="p">,</span><span
+      class="s2">&quot;dad&quot;</span><span class="p">,</span><span class="s2">&quot;olaf&quot;</span><span
+      class="p">,</span><span class="s2">&quot;sven&quot;</span><span class="p">]</span><br
+      />  <span class="p">}</span>  <span class="n">person_reader</span><span class="p">(</span><span
+      class="n">anna</span><span class="p">)</span><br /><span class="k">def</span>
+      <span class="nf">person_reader</span><span class="p">(</span><span class="n">person</span><span
+      class="p">):</span><br />  <span class="n">friend_count</span> <span class="o">=</span>
+      <span class="nb">len</span><span class="p">(</span><span class="n">person</span><span
+      class="p">[</span><span class="s2">&quot;friends&quot;</span><span class="p">]</span>
+      <span class="p">)</span><br />  <span class="k">if</span> <span class="n">friend_count</span>
+      <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span><br
+      />    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span
+      class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+      <span class="o">+</span> <span class="s2">&quot; is cool</span><span class="se">\n</span><span
+      class="s2"> and &quot;</span> <span class="o">+</span> <span class="n">person</span><span
+      class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+      <span class="o">+</span><span class="s2">&quot; </span><br />    <span class="n">has</span>
+      <span class="s2">&quot; +str(friend_count) +&quot;</span> <span class="n">friends</span><span
+      class="s2">&quot; )</span><br /><span class="k">else</span><span class="p">:</span><br
+      />  <span class="k">print</span><span class="p">(</span><span class="n">person</span><span
+      class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+      <span class="o">+</span> <span class="s2">&quot; is cool</span><span class="se">\n</span><span
+      class="s2"> However, sadly to say &quot;</span> <span class="o">+</span> <br
+      />  <span class="n">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span
+      class="p">]</span> <span class="o">+</span><span class="s2">&quot; has &quot;</span>
+      <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span
+      class="n">friend_count</span><span class="p">)</span> <span class="o">+</span><span
+      class="s2">&quot; friends&quot;</span> <span class="p">)</span><br /></pre></div><br
+      /></div>
