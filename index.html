@@ -4,11 +4,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link href="/node_modules/prismjs/themes/prism.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/esprima/2.7.3/esprima.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/yamljs/0.3.0/yaml.min.js"></script>
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="/style.css">
 
 
@@ -65,7 +63,7 @@
    var inHTML = "";
    for(lang in languages){
 
-       inHTML += `<a class="dropdown-item" onclick="changeLanguage('${id}', '${languages[lang]}')">${languages[lang]}</a>\n`
+       inHTML += `<option value="" class="dropdown-item" onchange="changeLanguage('${id}', '${languages[lang]}')">${languages[lang]}</option>\n`
    } 
    if(id == "right"){
     document.getElementById("ddRight").innerHTML = inHTML;
@@ -113,7 +111,7 @@
          }
         resultHTML +=
          `<h2>${i}</h2><br/>
-         <p>${highlight(language_sections[i], side)}</p>
+         <p><pre class="language-python"><code class="language-python">${highlight(language_sections[i], side)}</code></pre></p>
           `
           
      }
@@ -121,7 +119,7 @@
  }
  function highlight(language_section,side){
      var language = args[side]
-     return `<pre><code class="${language}""> ${language_section} </code></pre>`
+     return `<p class="language-${language}""> ${language_section} </p>`
  }
  function templateInitialize(){
      // get globals
@@ -155,32 +153,44 @@
    
  }
  function makeSection(title, instructions){
- var inHTML = `<div class="container">
-    <div class= "row">
-            <div class= "col">
-                <h2> ${capitalize(title)} : Instructions</h2>
-            </div>
-            <div class=width-100/>
-            <div class= "col">
-                <p> ${instructions.replace("\n","<br/>")}</p>
-            </div>
-    </div>
- </div>
-  <div class="row">
-    <div class="col fill">
-      <div id="${title}-left" class="section left">
-            <h2 class='title' >LEFT</h2>
-            <div class='instructions'> </div>
-      </div>
-    </div>
-    <div class="col">
-       <div id="${title}-right" class="section right" >
-            <h2 class='title' >RIGHT</h2>
-            <div class='instructions'> </div>
+ var inHTML = `<table class="container">
+    <tr class= "row">
+                <td class= "col" align="left">
+                    <h2> ${capitalize(title)} : Instructions</h2>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" class= "col">
+                    <p> <pre>${instructions}</pre></p>
+                </td>
+            </tr>
+    
+ </table>
+ 
+
+    <table class = "container">
+       <tr class="row" >
+            <td width="50%" class="col-md fill">
+              <div id="${title}-left" class="city first-language">
+                    <h2>London2</h2>
+                    <p> London is the place of Dr Who.</p>
+                    </div>
+                </td>
+       
+             
+            <td width="50%" class="col-md right">
+            <div id="${title}-right" class="city second-language" >
+                    <h2>Denver2</h2>
+                    <p>Denver is the capital of Colorado.</p>
+                    
+                </div>
+            </td>
+       
         </div>
-    </div>  
-  </div>
-</div>`
+        </tr>
+    </table>
+
+`
     document.getElementById("global-container").innerHTML += inHTML;
  }
  function capitalize(title){
@@ -215,59 +225,70 @@ window.onload =oninit();
 </script>
 
 <div id="container">
-<div class = "row">
-    <div class="dropdown col">
-    <button class="btn btn-secondary dropdown-toggle language_selection" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Language: Left Side 
-    </button>
-        <div id="ddLeft" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        
-        <!--populated by javascript, see initialize() <a class="dropdown-item" href="#">{{ language }}</a> -->
-        </div>
-    </div>
-    <div class = "dropdown col" >
-    <button style="float:right" class="btn btn-secondary dropdown-toggle language_selection" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Language: Right Side 
+<table id="dropdown-holder">
+<tr>
+     <col align="left">
+    <td>
+    Language: Left Side 
+    </td>
+    </col>
+     <td width="80%">
+     </td>
+    <td align="right">
+    Language: Right Side
+    </td>
     
-    </button>
-        <div id="ddRight" class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-          <!-- populated by javascript, see initialize() <input type="checkbox" id="useRight" onclick="toggleVisible(false)"> -->
-        </div>
+</tr>
+</table> 
+
+     <div class="language-selection">
+         
+        <select id="ddRight" style="float:right" class=" "  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </select>
     </div>
-  </div>
-  </div>
+     <div class="language-selection">
+        
+        <select id="ddLeft" width="10%"  aria-haspopup="true" >
+        </select>
+    </div>
+
+
 
 
     <div id='global-container'></div> <!-- This is where all the javascript goes. See initialize()-->
 
 
-    <div class = "container">
-       <div class="row">
-            <div class="col-md fill">
-            <div id="London" class="city first-language">
+    <table class = "container">
+      
+            <td width="50%" class="col-md fill">
+              <div id="London" class="city first-language">
                     <h2>London2</h2>
                     <p> London is the place of Dr Who.</p>
-                </div>
-            </div>
+                    </div>
+               
+       
              
-            <div class="col-md right">
+            <td width="50%" class="col-md right">
             <div id="Denver" class="city second-language" >
                     <h2>Denver2</h2>
                     <p>Denver is the capital of Colorado.</p>
-                    <pre><code class="language-css">p { color: red }</code></pre>
+                    <pre><code class="language-javascript">function hi(){
+    print("hello world")
+    }:
+                         </code></pre>
                 </div>
-            </div>
+            </td>
        
         </div>
-   
-    </div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        </tr>
+    </table>
 <script src="/node_modules/prismjs/prism.js"/>
 <script src="/node_modules/prismjs/components/prism-python.min.js"/>
 <script src="/node_modules/prismjs/components/prism-javascript.min.js"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
 
 </body>
 

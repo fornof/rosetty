@@ -1,5 +1,5 @@
 .language-selection{
-    width: 100%;
+    
     position: fixed;
     z-index: 1000;
 }
@@ -7,7 +7,16 @@
     border-right: 5px solid red;
     /* background:#AA3344 */
 }
-
+.flex-container {
+    display: flex;
+  }
+  
+.fill-width {
+    flex: 1;
+ }
+table {
+    width:100%;
+}
 .first-language {
     background:#777777;
 }
@@ -15,11 +24,16 @@
     background:#999999;
 }
 
-pre {
-    overflow: auto;
-    white-space: pre-wrap;
-    color : #00aa00;
-}
+pre {   
+    border-style: solid;
+    border-color: red;
+        overflow-x: auto;
+        overflow: auto;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+     }
 .tag {
     display: inline;
     padding: inherit;
