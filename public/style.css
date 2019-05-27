@@ -9,8 +9,11 @@
    
     z-index: 1000;
 } */
+.top{
+    top:100px;
+}
 .fill {
-    border-right: 5px solid red;
+    border-right: 5px solid rgb(137, 160, 223);
     /* background:#AA3344 */
 }
 /* .container{ 
@@ -31,10 +34,10 @@
  } */
 
 .first-language {
-    background:#dddddd;
+    background:#c6faef;
 }
 .second-language {
-    background:#cccccc;
+    background:#dccef2;
 }
 /* 
 .aParent div {

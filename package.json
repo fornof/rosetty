@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "highlight.js": "^9.15.6",
     "prismjs": "^1.16.0"
   }

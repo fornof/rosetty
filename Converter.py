@@ -102,7 +102,7 @@ def add_line_breaks( string,width=100):
         else:
             char_count +=1
         if char_count >= width:
-           string= string[0:last_space] + line_breaker+ comment_line*'//'+py_comment_line*"#" +string[last_space:]
+           string= string[0:last_space] + line_breaker+ comment_line*'//'+py_comment_line*"#" + string[last_space:]
            char_count = 0
         index +=1
     return string 
@@ -119,7 +119,7 @@ def process(highlight_string):
     html = markdown.markdown(highlight_string, extensions=[CodeBlockExtension()])
     print(html)
     return html
-def writeYaml(data, name="rendered-sections.yaml"):
+def writeYaml(data, name="public/rendered-sections.yaml"):
     yaml.dump(
     data,
     open(name, 'w'),
@@ -139,7 +139,7 @@ def readYaml():
         for section in sections:
             for key, value in section.items():
                 if key == "instructions":
-                    continue # no formatting on the instructions, that is all manual
+                     continue # no formatting on the instructions, that is all manual
                 if key == "title":
                     continue # no formatting on the title, that is all manual
                 if type(value) == type([]):

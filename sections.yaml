@@ -5,11 +5,11 @@ languages:
         instructions: 
          - | 
             variables can be ATOMIC TYPES, or they can be Objects which hold Atomics.
-            Atomic - meaning they cannot be split into smaller types
-            Atomic types are int, double, float, char , long, half, short
-            , they must be cast in Python and javascript because these are non typed 
-            or autotyped languages 
-            google search "type casting in {{language}}".
+            Atomic - meaning they cannot be split into smaller types<br/>
+            Atomic types are int, double, float, char , long, half, short<br/>
+            Variables must be cast in Python and javascript because these are non typed 
+            or autotyped languages <br/>
+            Google search <a target="blank" href="https://www.google.com/search?q=type+casting+in+javascript">Type casting in JavaScript</a>.
         
     
       - title: dict_list
@@ -31,9 +31,9 @@ languages:
     - language_name: javascript
       sections:
       - title: variables # this is for code to read
-        example_header: 
+        example_header: # this is for people to read
          - |
-            Variables in JavaScript  # this is for people to read
+            Variables in JavaScript  
 
         example:
          - | 
@@ -82,7 +82,7 @@ languages:
                 //They are called like:
                 dictionary["elsa"] // returns "moody"
                 dictionary["foo"] // returns "bar"
-                dictionary["inner"]["inside"] // {"inside":"cozy"} \#returns cozy
+                dictionary["inner"]["inside"] // {"inside":"cozy"} //returns cozy
                 var mylist = dictionary["list"] //returns [1,2,3]
                 mylist[0] //returns 1   
                 [/sourcecode]      
@@ -94,7 +94,7 @@ languages:
             - |    
                 in javascript:
                 [sourcecode:javascript]
-                var elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": None}
+                var elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
                 var anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
                 [/sourcecode]
       - title: functions
@@ -112,7 +112,9 @@ languages:
                   console.log(name +" " +  str(age) )
                   return true
                 }
-                [/sourcecode]  
+                [/sourcecode] 
+                <br/>
+                <br/> 
         example_activity: 
             - | 
                 in javascript , find 10 function definitions and 10 function calls.
@@ -121,7 +123,9 @@ languages:
                 var elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
                 var anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
                 [/sourcecode]
+                <br/>
                 write a function to print out how many friends elsa and anna have
+                <br/>
         example_answer: 
             - | 
                 in javascript, the answer to the activity is:
@@ -149,7 +153,7 @@ languages:
               foo = "bar"
               foo = 1
               foo = MyClass()
-              \#They are called like this:
+              #They are called like this:
               foo
               [/sourcecode]
         example_activity: 
@@ -187,7 +191,7 @@ languages:
              They are called like:
              dictionary["elsa"] # returns "moody"
              dictionary["foo"] #returns bar
-             dictionary["inner"]["inside"] # {"inside":"cozy"} \#returns cozy
+             dictionary["inner"]["inside"] # {"inside":"cozy"} #returns cozy
              mylist = dictionary["list"] #returns [1,2,3]
              mylist[0] # returns foo
              # google search Char array (or string) # todo , provide further reading     
@@ -217,7 +221,7 @@ languages:
               Functions look like:                 
         example:
           - | 
-              '[sourcecode:python]
+              [sourcecode:python]
               name = "Robert"
               age = 28
               read_my_age_and_name(name, age ) # calls the function with name and age
@@ -229,7 +233,7 @@ languages:
                   print("reading...")
                   print(name, age )
                   return True
-              [/sourcecode]'
+              [/sourcecode]
 
         example_activity: 
           - |

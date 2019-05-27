@@ -5,10 +5,11 @@ languages:
   - title: variables
     instructions:
     - "variables can be ATOMIC TYPES, or they can be Objects which hold Atomics.\n\
-      Atomic - meaning they cannot be split into smaller types\nAtomic types are int,\
-      \ double, float, char , long, half, short\n, they must be cast in Python and\
-      \ javascript because these are non typed \nor autotyped languages \ngoogle search\
-      \ \"type casting in {{language}}\".\n"
+      Atomic - meaning they cannot be split into smaller types<br/>\nAtomic types\
+      \ are int, double, float, char , long, half, short<br/>\nVariables must be cast\
+      \ in Python and javascript because these are non typed \nor autotyped languages\
+      \ <br/>\nGoogle search <a target=\"blank\" href=\"https://www.google.com/search?q=type+casting+in+javascript\"\
+      >Type casting in JavaScript</a>.\n"
   - title: dict_list
     instructions:
     - "Dictionaries are key value pairs that are in an unsorted list. If a key is\
@@ -30,7 +31,7 @@ languages:
   sections:
   - title: variables
     example_header:
-    - '<p>Variables in JavaScript  # this is for people to read</p>'
+    - <p>Variables in JavaScript  </p>
     example:
     - <div class="code"><div class="highlight"><pre><span></span><span class="kd">let</span>
       <span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><br
@@ -91,7 +92,7 @@ languages:
       <span class="c1">// returns &quot;bar&quot;</span><br /><span class="nx">dictionary</span><span
       class="p">[</span><span class="s2">&quot;inner&quot;</span><span class="p">][</span><span
       class="s2">&quot;inside&quot;</span><span class="p">]</span> <span class="c1">//
-      {&quot;inside&quot;:&quot;cozy&quot;} \#retur</span><br />    <span class="c1">//#ns
+      {&quot;inside&quot;:&quot;cozy&quot;} //retur</span><br />    <span class="c1">//ns
       cozy</span><br /><span class="kd">var</span> <span class="nx">mylist</span>
       <span class="o">=</span> <span class="nx">dictionary</span><span class="p">[</span><span
       class="s2">&quot;list&quot;</span><span class="p">]</span> <span class="c1">//returns
@@ -112,21 +113,21 @@ languages:
       <span class="s2">&quot;happy&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span>
       <span class="o">:</span><br />    <span class="s2">&quot;princess&quot;</span><span
       class="p">,</span> <span class="s2">&quot;friends&quot;</span><span class="o">:</span>
-      <span class="nx">None</span><span class="p">}</span><br /><span class="kd">var</span>
-      <span class="nx">anna</span> <span class="o">=</span> <span class="p">{</span><span
-      class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;anna&quot;</span><span
-      class="p">,</span> <span class="s2">&quot;mood&quot;</span> <span class="o">:</span>
-      <span class="s2">&quot;moody&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span><br
-      />    <span class="o">:</span> <span class="s2">&quot;princess&quot;</span><span
-      class="p">,</span> <span class="s2">&quot;friends&quot;</span><span class="o">:</span><span
-      class="p">[</span><span class="s2">&quot;mom&quot;</span><span class="p">,</span><span
-      class="s2">&quot;dad&quot;</span><span class="p">,</span><span class="s2">&quot;olaf&quot;</span><span
-      class="p">,</span><span class="s2">&quot;sven&quot;</span><span class="p">]}</span><br
-      /></pre></div><br /></div>'
+      <span class="p">[]}</span><br /><span class="kd">var</span> <span class="nx">anna</span>
+      <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span>
+      <span class="o">:</span> <span class="s2">&quot;anna&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;mood&quot;</span> <span class="o">:</span> <span class="s2">&quot;moody&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;profession&quot;</span><br />  <span
+      class="o">:</span> <span class="s2">&quot;princess&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;friends&quot;</span><span class="o">:</span><span class="p">[</span><span
+      class="s2">&quot;mom&quot;</span><span class="p">,</span><span class="s2">&quot;dad&quot;</span><span
+      class="p">,</span><span class="s2">&quot;olaf&quot;</span><span class="p">,</span><span
+      class="s2">&quot;sven&quot;</span><span class="p">]}</span><br /></pre></div><br
+      /></div>'
   - title: functions
     example_header: <p>None</p>
     example:
-    - <div class="code"><div class="highlight"><pre><span></span><span class="kd">var</span>
+    - '<div class="code"><div class="highlight"><pre><span></span><span class="kd">var</span>
       <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Robert&quot;</span><br
       /><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span>
       <span class="mi">28</span><br /><span class="nx">readMyAgeAndName</span><span
@@ -145,6 +146,11 @@ languages:
       class="p">(</span><span class="nx">age</span><span class="p">)</span> <span
       class="p">)</span><br />  <span class="k">return</span> <span class="kc">true</span><br
       /><span class="p">}</span><br /></pre></div><br /></div>
+
+
+      <p><br/>
+
+      <br/> </p>'
     example_activity:
     - "<p>in javascript , find 10 function definitions and 10 function\n     calls.\n\
       in javascript,  given :</p>\n<div class=\"code\"><div class=\"highlight\"><pre><span></span><span\
@@ -168,8 +174,8 @@ languages:
       \ class=\"p\">,</span><span class=\"s2\">&quot;dad&quot;</span><span class=\"\
       p\">,</span><span class=\"s2\">&quot;olaf&quot;</span><span class=\"p\">,</span><span\
       \ class=\"s2\">&quot;sven&quot;</span><span class=\"p\">]}</span><br /></pre></div><br\
-      \ /></div>\n\n<p>write a function to print out how many friends elsa and anna\
-      \ have</p>"
+      \ /></div>\n\n<p><br/>\nwrite a function to print out how many friends elsa\
+      \ and anna have\n<br/></p>"
     example_answer:
     - '<p>in javascript, the answer to the activity is:</p>
 
@@ -208,7 +214,7 @@ languages:
       <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><br /><span
       class="n">foo</span> <span class="o">=</span> <span class="mi">1</span><br /><span
       class="n">foo</span> <span class="o">=</span> <span class="n">MyClass</span><span
-      class="p">()</span><br />\<span class="c1">#They are called like this:</span><br
+      class="p">()</span><br /><span class="c1">#They are called like this:</span><br
       /><span class="n">foo</span><br /></pre></div><br /></div>
     example_activity:
     - "<p>Find 21 variables in Python\nWrite 5 variables in Python that reference\
@@ -255,7 +261,7 @@ languages:
       class="p">]</span> <span class="c1">#returns bar</span><br /><span class="n">dictionary</span><span
       class="p">[</span><span class="s2">&quot;inner&quot;</span><span class="p">][</span><span
       class="s2">&quot;inside&quot;</span><span class="p">]</span> <span class="c1">#
-      {&quot;inside&quot;:&quot;cozy&quot;} \#retur</span><br />   <span class="c1">#ns
+      {&quot;inside&quot;:&quot;cozy&quot;} #retur</span><br />    <span class="c1">#ns
       cozy</span><br /><span class="n">mylist</span> <span class="o">=</span> <span
       class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span
       class="p">]</span> <span class="c1">#returns [1,2,3]</span><br /><span class="n">mylist</span><span
@@ -293,9 +299,7 @@ languages:
     example_header:
     - '<p>Functions look like:                 </p>'
     example:
-    - '<p>''</p>
-
-      <div class="code"><div class="highlight"><pre><span></span><span class="n">name</span>
+    - <div class="code"><div class="highlight"><pre><span></span><span class="n">name</span>
       <span class="o">=</span> <span class="s2">&quot;Robert&quot;</span><br /><span
       class="n">age</span> <span class="o">=</span> <span class="mi">28</span><br
       /><span class="n">read_my_age_and_name</span><span class="p">(</span><span class="n">name</span><span
@@ -318,9 +322,6 @@ languages:
       />    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span
       class="p">,</span> <span class="n">age</span> <span class="p">)</span><br />    <span
       class="k">return</span> <span class="bp">True</span><br /></pre></div><br /></div>
-
-
-      <p>''</p>'
     example_activity:
     - '<p>in python , find 10 function definitions and 10 function calls.
 

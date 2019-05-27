@@ -7,8 +7,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/esprima/2.7.3/esprima.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js"></script>
 
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="syntaxhi.css">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/syntaxhi.css">
 
 </head>
 <body>
@@ -40,9 +40,11 @@
    } 
    if(id == "right"){
     document.getElementById("ddRight").innerHTML = inHTML;
+   
    }
     else{
     document.getElementById("ddLeft").innerHTML = inHTML;
+  
    }
    console.log(inHTML)
   
@@ -59,6 +61,13 @@
  function updateLanguage(id){
     var side = id;
     var language = args[id]
+    if(side == 'right'){
+        document.getElementById('btnRight').innerHTML = `Language:${args[id]}`
+
+    }
+    else{
+        document.getElementById('btnLeft').innerHTML = `Language:${args[id]}`
+    }
     var sections = document.getElementsByClassName(`section ${id}`)
     var langs = lookup[language];
     for( i in langs){
@@ -72,7 +81,7 @@
             }
 
             section_fill.innerHTML = getHTML(langs[i],side )
-            section_fill.getElementById(offsetHeight;
+            //section_fill.getElementById(offsetHeight;
         
        
     } 
@@ -189,7 +198,7 @@ var doc = null;
 var langs = null;
 
 function oninit(){
-    fetch("/rendered-sections.yaml").then(response =>response.text()).then(data=>{ 
+    fetch("/static/rendered-sections.yaml").then(response =>response.text()).then(data=>{ 
         doc =  jsyaml.load(data);//jsyaml.load(data);
     
         return doc
@@ -206,8 +215,8 @@ window.onload =oninit();
 
 <div id="container">
 <div class = "row">
-    <div class="dropdown col">
-    <button class="btn btn-secondary dropdown-toggle language_selection" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown col-10">
+    <button  id="btnLeft"class="btn btn-secondary dropdown-toggle language-selection" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Language: Left Side 
     </button>
         <div id="ddLeft" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -215,8 +224,8 @@ window.onload =oninit();
         <!--populated by javascript, see initialize() <a class="dropdown-item" href="#">{{ language }}</a> -->
         </div>
     </div>
-    <div class = "dropdown col" >
-    <button style="float:right" class="btn btn-secondary dropdown-toggle language_selection" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class = "dropdown col-2" >
+    <button id="btnRight" style="align:right;float:right" class="btn btn-secondary dropdown-toggle language-selection" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Language: Right Side 
     
     </button>
@@ -226,7 +235,8 @@ window.onload =oninit();
     </div>
   </div>
   </div>
-
+<br/>
+<br/>
 <div id='global-container'></div> <!-- This is where all the javascript goes. See initialize()-->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
