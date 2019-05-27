@@ -27,43 +27,15 @@
         populateLanguages('left');
         changeLanguage('left','python')
         changeLanguage('right','javascript')
-        //toggleVisible(true);
+        
     }
-    /** function toggleVisible(firstTime) {
-   
-    var checkbox = document.getElementById('useRight')
-     
-    if (firstTime){
-        checkbox.checked = true;
-        return;
-    }
-  if(checkbox.checked){
-      var i;
-    var x = document.getElementsByClassName("right");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none"; 
-    }
-    checkbox.checked= false;
-    //args["useRight"] = false; // what it is currently afterward
-  }
-  else{
-    var i;
-    var x = document.getElementsByClassName("right");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "inherit"; 
-    }
-    //args["useRight"] = true;
-     checkbox.checked= false;
-  }
-  console.log("toggling" + checkbox.checked)
-  //document.getElementById(cityName).style.display = "block"; 
-} **/
+
  function populateLanguages(id){
    var languages = getLanguageNames() ;
    var inHTML = "";
    for(lang in languages){
 
-       inHTML += `<option value="${languages[lang]}" class="dropdown-item" onchange="changeLanguage('${id}', '${languages[lang]}')">${languages[lang]}</option>\n`
+       inHTML += `<a href="#" class="dropdown-item" onclick="changeLanguage('${id}', '${languages[lang]}')">${languages[lang]}</a>\n`
    } 
    if(id == "right"){
     document.getElementById("ddRight").innerHTML = inHTML;
@@ -119,7 +91,7 @@
  }
  function highlight(language_section,side){
      //this doesn't work because pre/code mess with my formatting
-     //`<pre><code class="language-${language}"> ${language_section}></code></pre>`
+     //return `<pre><code class="language-${language}"> ${language_section}></code></pre>`
      var language = args[side]
      return `<code class="code-default"> ${format(language_section)}></code>`
  }
@@ -159,7 +131,7 @@
  }
  function makeSection(title, instructions){
  var inHTML = `
-<div class="container">
+<div class="container" width="100%">
         <div class="row">
             <div class= "col" align="left">
                 <h2> ${capitalize(title)} : Instructions</h2>
@@ -230,62 +202,37 @@ window.onload =oninit();
 </script>
 
 
-<table width="100%" id="dropdown-holder" class="language-selection">
-<tr style="width:100%;">
-     <col align="left">
-    <td>
+<div id="container">
+<div class = "row">
+    <div class="dropdown col">
+    <button class="btn btn-secondary dropdown-toggle language_selection" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Language: Left Side 
-        <select id="ddLeft"  aria-haspopup="true" >
-        </select>
-    </td>
-    </col>
-    
-    <td align="right" >
-        Language: Right Side
-        <select id="ddRight"  class=" "  aria-haspopup="true" >
-        </select>
-    </td>
-    
-</tr>
-</table> 
-
-
-
-
-    <div id='global-container'></div> <!-- This is where all the javascript goes. See initialize()-->
-
-
-    <table class = "container">
-      
-            <td width="50%" class="col-md fill">
-              <div id="London" class="city first-language">
-                    <h2>London2</h2>
-                    <p> London is the place of Dr Who.</p>
-                    </div>
-               
-       
-             
-            <td width="50%" class="col-md right">
-            <div id="Denver" class="city second-language" >
-                    <h2>Denver2</h2>
-                    <p>Denver is the capital of Colorado.</p>
-                    <pre><code class="language-javascript">function hi(){
-    print("hello world")
-    }:
-                         </code></pre>
-                </div>
-            </td>
-       
+    </button>
+        <div id="ddLeft" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        
+        <!--populated by javascript, see initialize() <a class="dropdown-item" href="#">{{ language }}</a> -->
         </div>
-        </tr>
-    </table>
-<script src="/node_modules/prismjs/prism.js"/>
-<script src="/node_modules/prismjs/components/prism-python.min.js"/>
-<script src="/node_modules/prismjs/components/prism-javascript.min.js"/>
+    </div>
+    <div class = "dropdown col" >
+    <button style="float:right" class="btn btn-secondary dropdown-toggle language_selection" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Language: Right Side 
+    
+    </button>
+        <div id="ddRight" class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+          <!-- populated by javascript, see initialize() <input type="checkbox" id="useRight" onclick="toggleVisible(false)"> -->
+        </div>
+    </div>
+  </div>
+  </div>
+
+<div id='global-container'></div> <!-- This is where all the javascript goes. See initialize()-->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="/node_modules/prismjs/prism.js"/>
+<script src="/node_modules/prismjs/components/prism-python.min.js"/>
+<script src="/node_modules/prismjs/components/prism-javascript.min.js"/>
 </body>
 
 </html>
