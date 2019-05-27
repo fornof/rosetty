@@ -63,7 +63,7 @@
    var inHTML = "";
    for(lang in languages){
 
-       inHTML += `<option value="" class="dropdown-item" onchange="changeLanguage('${id}', '${languages[lang]}')">${languages[lang]}</option>\n`
+       inHTML += `<option value="${languages[lang]}" class="dropdown-item" onchange="changeLanguage('${id}', '${languages[lang]}')">${languages[lang]}</option>\n`
    } 
    if(id == "right"){
     document.getElementById("ddRight").innerHTML = inHTML;
