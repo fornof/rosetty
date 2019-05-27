@@ -1,73 +1,52 @@
-
-rosetty:
-  - language:
+languages:
     - language_name: global # this is for content needed in the sections but is not particular to any language
-    - section: 
-      title: variables ,
-      instructions: 
-        - |
-          variables can be ATOMIC TYPES, or they can be Objects which hold Atomics.
+      sections: 
+      - title: variables
+        instructions: variables can be ATOMIC TYPES, or they can be Objects which hold Atomics.
           Atomic - meaning they cannot be split into smaller types
           Atomic types are int, double, float, char , long, half, short
           , they must be cast in Python and javascript because these are non typed 
           or autotyped languages google search "type casting in {{language}}".
-    - section:
-      title: dict_list
-      instructions: 
-        - | 
-            Dictionaries are key value pairs that are in an unsorted list. If a key is given such as "harry",
+        
+    
+      - title: dict_list
+        instructions: Dictionaries are key value pairs that are in an unsorted list. If a key is given such as "harry",
             a value (or None/undefined type) will be presented. These provide an easy way of passing data in web applications.
             JSON is the standard for getting dictionaries into strings and parsingn strings into JSON. 
             Lists use indexes to call the value. They are ordered, and sorting is important. 
-    - section:
-      title: functions
-      instructions:
-        - | 
-            Functions are also known as methods. These are generally interchangeable - someone will know what you mean- even if
+      - title: functions
+        instructions: Functions are also known as methods. These are generally interchangeable - someone will know what you mean- even if
             a "method" is correct form for one language or another. 
             functions hold variables and can call other functions. They can have input variables sent in from other functions
             .They sometimes return a variable with the keyword "return" and can send back a variable to the function that called this one.
             functions are in {} parens in javascript, and tabs /spaces in python.
-  - language:
+
     - language_name: javascript
-    - section:
-      title: variables
-      example_header: 
-          - |
-              they look like this in javascript,
+      sections:
+      - title: variables
+        example_header: they look like this in javascript,
               note the \"var\" is needed. 
-      example: 
-          - |
-              let foo = "bar"
+        example: let foo = "bar"
               var foo = 1
               var foo = new MyClass()
-              They are called like this:
+              They are called like this;
               foo ;
 
-      example_activity:
-          - |
-              Find 10 variables in javascript
+        example_activity: Find 10 variables in javascript
               Write 5 variables in javascript that reference different things (or copy 
               paste from code you find on github)
-      example_answer:
-          - |
-              var anna = "happy"
+        example_answer: var anna = "happy"
               var elsa = "moody"
               var annaAge = 18
               var elsaAge = 20
               var olaf = "snowman"
               var foo = new MyClass()
-      example_reading:
-              - | 
-                  google search "javascript docs variables"
-                  google search "JSON in javascript from string"
-    - section:
-      title: dict_list
-      example_header: 
-          - |          
-      example: 
-          - |
-             javascript lists look like:  var myvar = [1,2,3,4,5,6,7]
+        example_reading: google search "javascript docs variables"
+            google search "JSON in javascript from string"
+    
+      - title: dict_list
+        example_header: None
+        example: javascript lists look like:  var myvar = [1,2,3,4,5,6,7]
              They are called like:  myvar[0] \# returns 1,
               myvar[1] \# returns 2
              javascript dictionaries look like: var dictionary = {"foo":"bar" , "elsa" : "moody" , "inner": {"inside":"cozy"}, "list":[1,2,3]}
@@ -77,22 +56,15 @@ rosetty:
              dictionary["inner"]["inside"] \# {"inside":"cozy"} \#returns cozy
              var mylist = dictionary["list"] \#returns [1,2,3]
              mylist[0] \# returns 1         
-      example_activity:
-          - |
-              Find 10 examples of lists and dictionaries called and set
+        example_activity: Find 10 examples of lists and dictionaries called and set
               write 2 dictionaries or lists.          
-      example_answer:
-          - | 
-              in javascript:
+        example_answer: in javascript:
               var elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": None}
               var anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
-    - section:
-      title: functions
-      example_header: 
-          - |                   
-      example: 
-           - |  
-            var name = "Robert"
+   
+      - title: functions
+        example_header: None
+        example: var name = "Robert"
             var age = 28
             readMyAgeAndName(name, age);
             readMyAgeAndName("robert", 28)
@@ -102,16 +74,12 @@ rosetty:
               console.log(name +" " +  str(age) )
               return true
              }  
-      example_activity:
-          - |         
-              in javascript , find 10 function definitions and 10 function calls.
+        example_activity: in javascript , find 10 function definitions and 10 function calls.
               in javascript,  given :
               var elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
               var anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
               write a function to print out how many friends elsa and anna have
-      example_answer:
-          - | 
-              in javascript it is:
+        example_answer: in javascript it is:
               function personReader(person){
               var friend_count= person["friends"].length
               if (friend_count > 0){
@@ -123,44 +91,30 @@ rosetty:
               " + person["name"] +" has " +friend_count +" friends" )
               }
               }       
-  - language:
     - language_name: python
-    - section:
-      title: variables
-      example_header: 
-          - |
-              variables are like this in Python:
-      example: 
-          - |
-              foo = "bar"
+      sections:
+      - title: variables
+        example_header: variables are like this in Python:
+        example: foo = "bar"
               foo = 1
               foo = MyClass()
               They are called like this:
               foo
-      example_activity:
-          - |
-              Find 21 variables in Python
+        example_activity: Find 21 variables in Python
               Write 5 variables in Python that reference different things (or copy 
               paste from code you find on github)
-      example_answer:
-          - | 
-              anna = "happy"
+        example_answer: anna = "happy"
               elsa = "moody"
               annaAge = 18
               elsaAge = 20
               olaf = "snowman"
               foo = MyClass()
-      example_reading:
-          - | 
-              google search "python docs variables"
-    - section:
-      title: dict_list
-      example_header: 
-          - |   
+        example_reading: google search "python docs variables"
     
-      example: 
-          - |
-             python lists look like:  myvar = [1,2,3,4,5,6,7]
+      - title: dict_list
+        example_header: None
+    
+        example: python lists look like:  myvar = [1,2,3,4,5,6,7]
              They are called like:  myvar[0] \# returns 1,
                              myvar[1] \# returns 2
              python dictionaries look like: dictionary = {"foo":"bar" , "elsa" : "moody" , "inner": {"inside":"cozy"}, "list":["foo",2,3]}
@@ -172,28 +126,18 @@ rosetty:
              mylist[0] \# returns foo
             #Char array (or string) # todo , provide further reading     
               
-      example_activity:
-          - |
-              Find 10 examples of lists and dictionaries called and set
+        example_activity: Find 10 examples of lists and dictionaries called and set
               write 2 dictionaries or lists.
 
               
-      example_answer:
-          - | 
-              elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
+        example_answer: elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
               anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
-      example_reading:
-          - | 
-              google search: is python char list a string?
+        example_reading:  google search: is python char list a string?
               google search: "get() instead of calling brackets in python" 
-    - section:
-      title: functions
-      example_header: 
-          - |  
-              Functions look like:                 
-      example: 
-          - |
-              name = "Robert"
+
+      - title: functions
+        example_header: Functions look like:                 
+        example: name = "Robert"
               age = 28
               read_my_age_and_name(name, age ) \# calls the function with name and age
               read_my_age_and_name("robert", 28 ) \# calls with "robert" as the first variable, and 28 as the second
@@ -203,38 +147,28 @@ rosetty:
                   print("reading...")
                   print(name, age )
                   return True
-     
-      example_activity:
-          - |         
-              in python , find 10 function definitions and 10 function calls.
+        example_activity: in python , find 10 function definitions and 10 function calls.
               in python , write a function that prints an input variable
               in python,  given :
               elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
               anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
-              write a function to print out how many friends elsa and anna have
-      example_answer:
-          - | 
-              def foo(bar):
-                  print(bar)\n\n    
-              anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}  
-              person_reader(anna)
-              def person_reader(person):
-              friend_count = len(person["friends"] )
-              if friend_count > 0:
-                  print(person["name"] + " is cool\n and " + person["name"] +" 
+                  write a function to print out how many friends elsa and anna have
+        example_answer: def foo(bar):
+                  print(bar)\n\n
+                  anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}  person_reader(anna)
+                  def person_reader(person):
+                  friend_count = len(person["friends"] )
+                  if friend_count > 0:
+                      print(person["name"] + " is cool\n and " + person["name"] +" 
                   has " +str(friend_count) +" friends" )
-              else:
+                  else:
                   print(person["name"] + " is cool\n However, sadly to say " + 
                   person["name"] +" has " +str(friend_count) +" friends" )
 
-
-
-
-
- #javascript
  
- #python
- 
+
+
+
 
    
 

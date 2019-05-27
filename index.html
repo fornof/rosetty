@@ -3,62 +3,243 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<link href="/node_modules/prismjs/themes/prism.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/esprima/2.7.3/esprima.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/yamljs/0.3.0/yaml.min.js"></script>
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="/style.css">
 
+
 </head>
 <body>
-<div id="app">
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Language: Left Side 
-  </button>
-    <div id="ddLeft" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a v-for="language in this.getLanguages()" class="dropdown-item" v-on:click="this.console.log($event.target)">{{ language }}</a>
-       <!-- <a class="dropdown-item" href="#">{{ language }}</a> -->
-    </div>
-</div>
-<div class = "dropdown">
-  <button id="ddRight" style="float:right" class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Language: Right Side 
-  </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-  </div>
-<!-- esprima required only for !!js/function -->
-<!-- <div class="w3-bar w3-black language-selection">
-  <button class="w3-bar-item w3-button" onclick="openCity('London')">London</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Paris</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Tokyo</button>
-  <button style="float:right" class="w3-bar-item w3-button" onclick="openCity('Denver')">Denver</button>
-  <button style="float:right" class="w3-bar-item w3-button" onclick="openCity('Mobile')">Mobile</button>
-  <button style="float:right" class="w3-bar-item w3-button" onclick="openCity('Hattiesburg')">Hattiesburg</button>
-</div>-->
 
+<script type="text/javascript">
+ 
+    var args = {}
+    args['useRight'] = true;
+    args['right'] = "javascript";
+    args['left']= "javascript";
+    var lookup ={};
+    
+    function initialize(){
+        templateInitialize();
+        populateLanguages('right');
+        populateLanguages('left');
+        changeLanguage('left','python')
+        changeLanguage('right','javascript')
+        //toggleVisible(true);
+    }
+    /** function toggleVisible(firstTime) {
+   
+    var checkbox = document.getElementById('useRight')
+     
+    if (firstTime){
+        checkbox.checked = true;
+        return;
+    }
+  if(checkbox.checked){
+      var i;
+    var x = document.getElementsByClassName("right");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+    }
+    checkbox.checked= false;
+    //args["useRight"] = false; // what it is currently afterward
+  }
+  else{
+    var i;
+    var x = document.getElementsByClassName("right");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "inherit"; 
+    }
+    //args["useRight"] = true;
+     checkbox.checked= false;
+  }
+  console.log("toggling" + checkbox.checked)
+  //document.getElementById(cityName).style.display = "block"; 
+} **/
+ function populateLanguages(id){
+   var languages = getLanguageNames() ;
+   var inHTML = "";
+   for(lang in languages){
 
-<div class="container">
+       inHTML += `<a class="dropdown-item" onclick="changeLanguage('${id}', '${languages[lang]}')">${languages[lang]}</a>\n`
+   } 
+   if(id == "right"){
+    document.getElementById("ddRight").innerHTML = inHTML;
+   }
+    else{
+    document.getElementById("ddLeft").innerHTML = inHTML;
+   }
+   console.log(inHTML)
+  
+ 
+ 
+ }
+ function changeLanguage(id, language){
+     //console.log(id +":" +language);
+     args[id] = language;
+     //console.log(args)
+     updateLanguage(id)
+ }
+ function updateLanguage(id){
+    var side = id;
+    var language = args[id]
+    var sections = document.getElementsByClassName(`section ${id}`)
+    var langs = lookup[language];
+    for( i in langs){
+        
+            //console.log( + "-" + id)
+            var section_fill = document.getElementById(i + "-" + id)
+            console.log(section_fill)
+            if(section_fill === undefined || section_fill == null){
+                console.log(i + "-" + id + "not found, is it in globals?")
+                continue;
+            }
+
+            section_fill.innerHTML = getHTML(langs[i],side )
+
+        
+       
+    } 
+ }
+ function getHTML(language_sections,side){
+     var resultHTML = "";
+     for(i in language_sections){
+         if ( i == "title"){
+             continue;
+         }
+        resultHTML +=
+         `<h2>${i}</h2><br/>
+         <p>${highlight(language_sections[i], side)}</p>
+          `
+          
+     }
+     return resultHTML;
+ }
+ function highlight(language_section,side){
+     var language = args[side]
+     return `<pre><code class="${language}""> ${language_section} </code></pre>`
+ }
+ function templateInitialize(){
+     // get globals
+    var langs = doc['languages'];
+    for( h in langs ){
+        var section_lookup = {}
+        console.log(langs[h].sections)
+        if('global' == langs[h].language_name ){
+            var lang_sections = langs[h].sections
+            
+            for(j in lang_sections){
+                // make html for sections with left, right , and instructions
+                makeSection(lang_sections[j].title,lang_sections[j].instructions);// this is only done once per load
+                
+            }
+        }
+        else{
+            // put sections in a quick lookup
+            var lang_sections = langs[h].sections
+            for(j in lang_sections){
+                section_lookup[lang_sections[j].title] = lang_sections[j]
+            }
+             lookup[langs[h].language_name] = section_lookup
+        }
+       
+      }
+     // for each section name,
+     // put a left template with id and class
+     // put a right template with id and class
+     // have an info on the main part
+   
+ }
+ function makeSection(title, instructions){
+ var inHTML = `<div class="container">
+    <div class= "row">
+            <div class= "col">
+                <h2> ${capitalize(title)} : Instructions</h2>
+            </div>
+            <div class=width-100/>
+            <div class= "col">
+                <p> ${instructions.replace("\n","<br/>")}</p>
+            </div>
+    </div>
+ </div>
   <div class="row">
     <div class="col fill">
-      <div id="London" class="city">
-            <h2>London</h2>
-            <p> London is the place of Dr Who.</p>
+      <div id="${title}-left" class="section left">
+            <h2 class='title' >LEFT</h2>
+            <div class='instructions'> </div>
       </div>
     </div>
     <div class="col">
-       <div id="Denver" class="city" >
-            <h2>Denver</h2>
-            <p>Denver is the capital of Colorado.</p>
+       <div id="${title}-right" class="section right" >
+            <h2 class='title' >RIGHT</h2>
+            <div class='instructions'> </div>
         </div>
     </div>  
   </div>
-</div>
+</div>`
+    document.getElementById("global-container").innerHTML += inHTML;
+ }
+ function capitalize(title){
+     return title.charAt(0).toUpperCase() + title.slice(1)
+ }
+ function extend(obj, src) {
+    Object.keys(src).forEach(function(key) { obj[key] = src[key]; });
+    return obj;
+}
+ function getLanguageNames() {
+        
+            var lang = lookup
+            return Object.keys(lang)
+        }
+
+var doc = null;
+var langs = null;
+
+function oninit(){
+    fetch("/sections.yaml").then(response =>response.text()).then(data=>{ 
+        doc =  YAML.parse(data);//jsyaml.load(data);
+    
+        return doc
+    } ).then( doc => {
+        this.doc = doc
+        console.log(doc);
+        initialize();
+    }
+    );
+}
+window.onload =oninit();
+</script>
+
+<div id="container">
+<div class = "row">
+    <div class="dropdown col">
+    <button class="btn btn-secondary dropdown-toggle language_selection" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Language: Left Side 
+    </button>
+        <div id="ddLeft" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        
+        <!--populated by javascript, see initialize() <a class="dropdown-item" href="#">{{ language }}</a> -->
+        </div>
+    </div>
+    <div class = "dropdown col" >
+    <button style="float:right" class="btn btn-secondary dropdown-toggle language_selection" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Language: Right Side 
+    
+    </button>
+        <div id="ddRight" class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+          <!-- populated by javascript, see initialize() <input type="checkbox" id="useRight" onclick="toggleVisible(false)"> -->
+        </div>
+    </div>
+  </div>
+  </div>
+
+
+    <div id='global-container'></div> <!-- This is where all the javascript goes. See initialize()-->
+
 
     <div class = "container">
        <div class="row">
@@ -69,10 +250,11 @@
                 </div>
             </div>
              
-            <div class="col-md">
+            <div class="col-md right">
             <div id="Denver" class="city second-language" >
                     <h2>Denver2</h2>
                     <p>Denver is the capital of Colorado.</p>
+                    <pre><code class="language-css">p { color: red }</code></pre>
                 </div>
             </div>
        
@@ -81,71 +263,12 @@
     </div>
 
 
- <ul id="example-1">
-        <li v-for="language in doc">
-            {{ language }}
-        </li>
-    </ul> 
-</div>
-
-
-<script type="text/javascript">
-function openCity(cityName) {
-  var i;
-  var x = document.getElementsByClassName("city");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none"; 
-  }
-  document.getElementById(cityName).style.display = "block"; 
-}
- function getLanguages()
-        {
-            var result = []
-            var lang = doc['rosetty']
-            for(language in lang){ var mylang = lang[language]["language"]; 
-                for(langName in mylang){
-                var myName = mylang[langName]['language_name']
-                    if(myName !== undefined && myName != 'global'){
-                    result.push(myName);
-
-                    }
-                }
-            }
-            console.log(result)
-        langs = result;
-        return result;
-        }
-
-var doc = null;
-var langs = null;
- fetch("/sections.yaml").then(response =>response.text()).then(data=>{ 
-    doc = jsyaml.load(data);
-   
-    return doc
-} ).then( doc => {
-    console.log(doc)
-    var app = new Vue({
-  el: '#app',
-  methods: 
-  {
-
-  
-  },
-  data: {
-    doc: doc,
-    langs: []
-  }
-    })
-}
-)
-
-
-
-
-</script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/node_modules/prismjs/prism.js"/>
+<script src="/node_modules/prismjs/components/prism-python.min.js"/>
+<script src="/node_modules/prismjs/components/prism-javascript.min.js"/>
+
 </body>
 
 </html>
