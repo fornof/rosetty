@@ -33,10 +33,10 @@ table {
     width:50%;
 }
 .first-language {
-    background:#777777;
+    background:#dddddd;
 }
 .second-language {
-    background:#999999;
+    background:#cccccc;
 }
 
 .aParent div {
@@ -52,6 +52,9 @@ pre {
         white-space: -o-pre-wrap;
         word-wrap: break-word;
      }
+.code-default {
+    color:darkgreen;
+}
 .tag {
     display: inline;
     padding: inherit;

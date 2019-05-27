@@ -111,15 +111,20 @@
          }
         resultHTML +=
          `<h2>${i}</h2><br/>
-         <p><p class="language-python">${highlight(language_sections[i], side)}</p></p>
+         <p>${highlight(language_sections[i], side)}</p>
           `
           
      }
      return resultHTML;
  }
  function highlight(language_section,side){
+     //this doesn't work because pre/code mess with my formatting
+     //`<pre><code class="language-${language}"> ${language_section}></code></pre>`
      var language = args[side]
-     return `<p class="language-${language}""> ${language_section} </p>`
+     return `<code class="code-default"> ${format(language_section)}></code>`
+ }
+ function format(insert){
+     return insert.replace("\n", "<br/>")
  }
  function templateInitialize(){
      // get globals
