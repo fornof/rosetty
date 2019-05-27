@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/yamljs/0.3.0/yaml.min.js"></script>
 
 <link rel="stylesheet" href="/style.css">
-
+<link rel="stylesheet" href="syntaxhi.css">
 
 </head>
 <body>
@@ -96,6 +96,9 @@
      return `<code class="code-default"> ${format(language_section)}></code>`
  }
  function format(insert){
+     if(typeof(insert) != 'string'){
+         insert= insert[0] // if - | list in yaml, convert to string
+     }
      return insert.replace("\n", "<br/>")
  }
  function templateInitialize(){
@@ -187,7 +190,7 @@ var doc = null;
 var langs = null;
 
 function oninit(){
-    fetch("/sections.yaml").then(response =>response.text()).then(data=>{ 
+    fetch("/rendered-sections.yaml").then(response =>response.text()).then(data=>{ 
         doc =  YAML.parse(data);//jsyaml.load(data);
     
         return doc

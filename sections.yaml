@@ -46,75 +46,103 @@ languages:
     
       - title: dict_list
         example_header: None
-        example: javascript lists look like:  var myvar = [1,2,3,4,5,6,7]
-             They are called like:  myvar[0] \# returns 1,
-              myvar[1] \# returns 2
-             javascript dictionaries look like: var dictionary = {"foo":"bar" , "elsa" : "moody" , "inner": {"inside":"cozy"}, "list":[1,2,3]}
-             They are called like:
-             dictionary["elsa"] \# returns "moody"
-             dictionary["foo"]
-             dictionary["inner"]["inside"] \# {"inside":"cozy"} \#returns cozy
-             var mylist = dictionary["list"] \#returns [1,2,3]
-             mylist[0] \# returns 1         
-        example_activity: Find 10 examples of lists and dictionaries called and set
-              write 2 dictionaries or lists.          
-        example_answer: in javascript:
-              var elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": None}
-              var anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
+        example:
+            - | 
+                javascript lists look like:  var myvar = [1,2,3,4,5,6,7]
+                They are called like:  myvar[0] \# returns 1,
+                  myvar[1] \# returns 2
+                javascript dictionaries look like: var dictionary = {"foo":"bar" , "elsa" : "moody" , "inner": {"inside":"cozy"}, "list":[1,2,3]}
+                They are called like:
+                dictionary["elsa"] \# returns "moody"
+                dictionary["foo"]
+                dictionary["inner"]["inside"] \# {"inside":"cozy"} \#returns cozy
+                var mylist = dictionary["list"] \#returns [1,2,3]
+                mylist[0] \# returns 1         
+        example_activity: 
+            - | 
+                Find 10 examples of lists and dictionaries called and set
+                write 2 dictionaries or lists.          
+        example_answer: 
+            - |    
+                in javascript:
+                var elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": None}
+                var anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
    
       - title: functions
         example_header: None
-        example: var name = "Robert"
-            var age = 28
-            readMyAgeAndName(name, age);
-            readMyAgeAndName("robert", 28)
-            in javscript, this is what a function looks like :
-            function readMyAgeAndName(name, age){
-              console.log("reading...")
-              console.log(name +" " +  str(age) )
-              return true
-             }  
-        example_activity: in javascript , find 10 function definitions and 10 function calls.
-              in javascript,  given :
-              var elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
-              var anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
-              write a function to print out how many friends elsa and anna have
-        example_answer: in javascript it is:
-              function personReader(person){
-              var friend_count= person["friends"].length
-              if (friend_count > 0){
-                console.log(person["name"] + " is cool\n and " + person["name"] 
-              +" has " +  friend_count +" friends" )
-              }
-              else{
-              console.log(person["name"] + " is cool\n However, sadly to say 
-              " + person["name"] +" has " +friend_count +" friends" )
-              }
-              }       
+        example: 
+            - | 
+                var name = "Robert"
+                var age = 28
+                readMyAgeAndName(name, age);
+                readMyAgeAndName("robert", 28)
+                in javscript, this is what a function looks like :
+                function readMyAgeAndName(name, age){
+                  console.log("reading...")
+                  console.log(name +" " +  str(age) )
+                  return true
+                }  
+        example_activity: 
+            - | 
+                in javascript , find 10 function definitions and 10 function calls.
+                in javascript,  given :
+                var elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
+                var anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
+                write a function to print out how many friends elsa and anna have
+        example_answer: 
+            - | 
+                in javascript it is:
+                [sourcecode:javascript]
+                function personReader(person){
+                var friend_count= person["friends"].length
+                if (friend_count > 0){
+                  console.log(person["name"] + " is cool\n and " + person["name"] 
+                +" has " +  friend_count +" friends" )
+                }
+                else{
+                  console.log(person["name"] + " is cool\n However, sadly to say 
+                  " + person["name"] +" has " +friend_count +" friends" )
+                  }
+                } 
+                [/sourcecode]      
     - language_name: python
       sections:
       - title: variables
-        example_header: variables are like this in Python:
-        example: foo = "bar"
+        example_header: 
+          - |
+              variables are like this in Python:
+        example: 
+          - |
+              [sourcecode:python]
+              foo = "bar"
               foo = 1
               foo = MyClass()
-              They are called like this:
+              \#They are called like this:
               foo
-        example_activity: Find 21 variables in Python
+              [/sourcecode]
+        example_activity: 
+          - |
+              Find 21 variables in Python
               Write 5 variables in Python that reference different things (or copy 
               paste from code you find on github)
-        example_answer: anna = "happy"
+        example_answer: 
+          - |
+              anna = "happy"
               elsa = "moody"
               annaAge = 18
               elsaAge = 20
               olaf = "snowman"
               foo = MyClass()
-        example_reading: google search "python docs variables"
+        example_reading: 
+          - | 
+              google search "python docs variables"
     
       - title: dict_list
         example_header: None
     
-        example: python lists look like:  myvar = [1,2,3,4,5,6,7]
+        example: 
+          - |
+             python lists look like:  myvar = [1,2,3,4,5,6,7]
              They are called like:  myvar[0] \# returns 1,
                              myvar[1] \# returns 2
              python dictionaries look like: dictionary = {"foo":"bar" , "elsa" : "moody" , "inner": {"inside":"cozy"}, "list":["foo",2,3]}
@@ -124,46 +152,60 @@ languages:
              dictionary["inner"]["inside"] \# {"inside":"cozy"} \#returns cozy
              mylist = dictionary["list"] \#returns [1,2,3]
              mylist[0] \# returns foo
-            #Char array (or string) # todo , provide further reading     
+             \#Char array (or string) # todo , provide further reading     
               
-        example_activity: Find 10 examples of lists and dictionaries called and set
+        example_activity: 
+          - |
+              Find 10 examples of lists and dictionaries called and set
               write 2 dictionaries or lists.
 
               
-        example_answer: elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
+        example_answer: 
+          - |
+              elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
               anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
-        example_reading:  google search: is python char list a string?
+        example_reading:  
+          - |
+              google search: is python char list a string?
               google search: "get() instead of calling brackets in python" 
 
       - title: functions
-        example_header: Functions look like:                 
-        example: name = "Robert"
+        example_header: 
+          - |
+              Functions look like:                 
+        example:
+          - | 
+              name = "Robert"
               age = 28
               read_my_age_and_name(name, age ) \# calls the function with name and age
               read_my_age_and_name("robert", 28 ) \# calls with "robert" as the first variable, and 28 as the second
-              read_my_age_and_name(age= 28, name="robert") #\ positionally calls function with input variables set to needed input
-                in python, this is what a function looks like :
+              read_my_age_and_name(age= 28, name="robert") \# positionally calls function with input variables set to needed input
+              \# in python, this is what a function looks like :
               def read_my_age_and_name(name, age):
                   print("reading...")
                   print(name, age )
                   return True
-        example_activity: in python , find 10 function definitions and 10 function calls.
+        example_activity: 
+          - |
+              in python , find 10 function definitions and 10 function calls.
               in python , write a function that prints an input variable
               in python,  given :
               elsa = {"name" : "elsa", "mood" : "happy", "profession" : "princess", "friends": []}
               anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}
                   write a function to print out how many friends elsa and anna have
-        example_answer: def foo(bar):
-                  print(bar)\n\n
+        example_answer: 
+              - |
+                  def foo(bar):
+                    print(bar)\n\n
                   anna = {"name" : "anna", "mood" : "moody", "profession" : "princess", "friends":["mom","dad","olaf","sven"]}  person_reader(anna)
                   def person_reader(person):
-                  friend_count = len(person["friends"] )
-                  if friend_count > 0:
+                    friend_count = len(person["friends"] )
+                    if friend_count > 0:
                       print(person["name"] + " is cool\n and " + person["name"] +" 
-                  has " +str(friend_count) +" friends" )
+                      has " +str(friend_count) +" friends" )
                   else:
-                  print(person["name"] + " is cool\n However, sadly to say " + 
-                  person["name"] +" has " +str(friend_count) +" friends" )
+                    print(person["name"] + " is cool\n However, sadly to say " + 
+                    person["name"] +" has " +str(friend_count) +" friends" )
 
  
 

@@ -7,6 +7,9 @@
 # result = highlight(code, lexer, formatter)
 #print(result)
 import markdown
+import yaml 
+import yamlordereddictloader
+import sys
 
 # -*- coding: utf-8 -*-
 """
@@ -51,7 +54,7 @@ from markdown.extensions import Extension
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import get_lexer_by_name, TextLexer
-
+import yaml
 
 class CodeBlockPreprocessor(Preprocessor):
 
@@ -75,17 +78,45 @@ class CodeBlockPreprocessor(Preprocessor):
 
 class CodeBlockExtension(Extension):
     def extendMarkdown(self, md, md_globals):
+        #deprecated , use register instead
         md.preprocessors.add('CodeBlockPreprocessor', CodeBlockPreprocessor(), '_begin')
 
+def process(highlight_string):
+    
+    # someText= ''' 
+    # [sourcecode:python]
+    # def foo(stuff):
+    #     print("hello world")
+    #     print("hi")
+    # [/sourcecode]'''
 
-someText= ''' 
-[sourcecode:python]
-def foo(stuff):
-    print("hello world")
-    print("hi")
-[/sourcecode]'''
-  
-html = markdown.markdown(someText, extensions=[CodeBlockExtension()])
-print(html)
+    html = markdown.markdown(highlight_string, extensions=[CodeBlockExtension()])
+    print(html)
+    return html
+def writeYaml(data, name="rendered-sections.yaml"):
+    yaml.dump(
+    data,
+    open(name, 'w'),
+    Dumper=yamlordereddictloader.Dumper,
+    default_flow_style=False,explicit_start=True,canonical=True)
+
+def readYaml():
+    file = sys.argv[1]
+    data = yaml.load(open(file),Loader=yamlordereddictloader.Loader)
+    #import pdb;pdb.set_trace()
+    #data['languages'][1]['sections'][1].keys()
+    languages = data['languages']
+    for language in languages:
+        sections= language['sections']
+        for section in sections:
+            for key, value in section.items():
+                if type(value) == type([]):
+                    section[key] = [process(value[0])]
+                else:
+                    section[key] = process(value)
+    writeYaml(data)
+
+readYaml() 
+
 
 
