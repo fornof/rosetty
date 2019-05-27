@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="/node_modules/prismjs/themes/prism.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/esprima/2.7.3/esprima.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/yamljs/0.3.0/yaml.min.js"></script>
@@ -111,7 +111,7 @@
          }
         resultHTML +=
          `<h2>${i}</h2><br/>
-         <p><pre class="language-python"><code class="language-python">${highlight(language_sections[i], side)}</code></pre></p>
+         <p><p class="language-python">${highlight(language_sections[i], side)}</p></p>
           `
           
      }
@@ -153,42 +153,42 @@
    
  }
  function makeSection(title, instructions){
- var inHTML = `<table class="container">
-    <tr class= "row">
-                <td class= "col" align="left">
-                    <h2> ${capitalize(title)} : Instructions</h2>
-                </td>
-            </tr>
-            <tr>
-                <td align="left" class= "col">
-                    <p> <pre>${instructions}</pre></p>
-                </td>
-            </tr>
+ var inHTML = `
+<div class="container">
+        <div class="row">
+            <div class= "col" align="left">
+                <h2> ${capitalize(title)} : Instructions</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div align="left" class= "col">
+                <p> <pre>${instructions}</pre></p>
+            </div>
+        </div>
     
- </table>
+</div>
  
 
-    <table class = "container">
-       <tr class="row" >
-            <td width="50%" class="col-md fill">
-              <div id="${title}-left" class="city first-language">
-                    <h2>London2</h2>
-                    <p> London is the place of Dr Who.</p>
-                    </div>
-                </td>
-       
-             
-            <td width="50%" class="col-md right">
-            <div id="${title}-right" class="city second-language" >
-                    <h2>Denver2</h2>
-                    <p>Denver is the capital of Colorado.</p>
-                    
+    <div class = "container">
+       <div class="row" >
+            <div width="50%" class="col-md fill">
+                <div id="${title}-left" class="city first-language">
+                        <h2>London2</h2>
+                        <p> London is the place of Dr Who.</p>
                 </div>
-            </td>
-       
+            </div>
+        
+                
+            <div width="50%" class="col-md right">
+                <div id="${title}-right" class="city second-language" >
+                        <h2>Denver2</h2>
+                        <p>Denver is the capital of Colorado.</p>                
+                </div>
+            </div>
+        
+           
         </div>
-        </tr>
-    </table>
+    </div>
 
 `
     document.getElementById("global-container").innerHTML += inHTML;
@@ -224,33 +224,25 @@ function oninit(){
 window.onload =oninit();
 </script>
 
-<div id="container">
-<table id="dropdown-holder">
-<tr>
+
+<table width="100%" id="dropdown-holder" class="language-selection">
+<tr style="width:100%;">
      <col align="left">
     <td>
-    Language: Left Side 
+        Language: Left Side 
+        <select id="ddLeft"  aria-haspopup="true" >
+        </select>
     </td>
     </col>
-     <td width="80%">
-     </td>
-    <td align="right">
-    Language: Right Side
+    
+    <td align="right" >
+        Language: Right Side
+        <select id="ddRight"  class=" "  aria-haspopup="true" >
+        </select>
     </td>
     
 </tr>
 </table> 
-
-     <div class="language-selection">
-         
-        <select id="ddRight" style="float:right" class=" "  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        </select>
-    </div>
-     <div class="language-selection">
-        
-        <select id="ddLeft" width="10%"  aria-haspopup="true" >
-        </select>
-    </div>
 
 
 
@@ -286,10 +278,9 @@ window.onload =oninit();
 <script src="/node_modules/prismjs/components/prism-python.min.js"/>
 <script src="/node_modules/prismjs/components/prism-javascript.min.js"/>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>

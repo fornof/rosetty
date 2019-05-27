@@ -3,9 +3,24 @@
     position: fixed;
     z-index: 1000;
 }
+.language-selection-right{
+    align-content:right;
+    position: fixed;
+   
+    z-index: 1000;
+}
 .fill {
     border-right: 5px solid red;
     /* background:#AA3344 */
+}
+.container{ 
+    float:left; 
+    width:100%; 
+}
+.col
+{
+    position:relative;
+    display:inline;
 }
 .flex-container {
     display: flex;
@@ -15,7 +30,7 @@
     flex: 1;
  }
 table {
-    width:100%;
+    width:50%;
 }
 .first-language {
     background:#777777;
@@ -24,9 +39,12 @@ table {
     background:#999999;
 }
 
+.aParent div {
+    float: center;
+    clear: none; 
+}
 pre {   
-    border-style: solid;
-    border-color: red;
+    width:inherit;
         overflow-x: auto;
         overflow: auto;
         white-space: -moz-pre-wrap;
@@ -44,4 +62,8 @@ pre {
     border-radius: inherit;
     font-weight: inherit;
     white-space: inherit;
+}
+.findme{ 
+    border-style: solid;
+    border-color: green;
 }
