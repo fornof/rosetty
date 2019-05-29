@@ -10,6 +10,7 @@ import markdown
 import yaml 
 import yamlordereddictloader
 import sys
+import re
 
 # -*- coding: utf-8 -*-
 """
@@ -86,8 +87,12 @@ def add_line_breaks( string,width=100):
     last_space = 0
     comment_line = False
     py_comment_line = False
+    ignore_line = False;
     line_breaker = "\n\t"
     for char in string:
+        if char =="<":
+            if string[index+1] == 'a':
+                ignore_line = True
         if char =='#':
             py_comment_line = True
         elif char == '/':
@@ -97,13 +102,17 @@ def add_line_breaks( string,width=100):
             char_count = 0 
             comment_line = False
             py_comment_line = False
+            ignore_line = False
         elif char == ' ':
             last_space = index
         else:
             char_count +=1
         if char_count >= width:
-           string= string[0:last_space] + line_breaker+ comment_line*'//'+py_comment_line*"#" + string[last_space:]
-           char_count = 0
+            if ignore_line:
+               string = string
+            else:
+                string= string[0:last_space] + line_breaker+ comment_line*'//'+py_comment_line*"#" + string[last_space:]
+            char_count = 0
         index +=1
     return string 
 
@@ -126,6 +135,15 @@ def writeYaml(data, name="public/rendered-sections.yaml"):
     Dumper=yamlordereddictloader.Dumper,
     default_flow_style=False,explicit_start=True)
 
+def googleReplace(string):
+
+    #import pdb; pdb.set_trace();
+    google_string = r'<a target="blank" href="https://google.com/search?q=\1">Google Search \1</a>'
+    result = re.sub(r"google\((.*)\)", google_string, string)
+  
+    print("final"+ result)
+    return result
+
 def readYaml():
     file = sys.argv[1]
     data = yaml.load(open(file),Loader=yamlordereddictloader.Loader)
@@ -138,7 +156,16 @@ def readYaml():
         sections= language['sections']
         for section in sections:
             for key, value in section.items():
+                if type(value) == type([]):
+                        value = [googleReplace(value[0])]
+                else:
+                        value = googleReplace(value)
+                if key =="example_reading":
+                    pass 
+                    #section[key] = value
+                    #continue;
                 if key == "instructions":
+                     section[key] = value
                      continue # no formatting on the instructions, that is all manual
                 if key == "title":
                     continue # no formatting on the title, that is all manual

@@ -12,7 +12,7 @@
 
 </head>
 <body>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script type="text/javascript">
  
     var args = {}
@@ -20,6 +20,11 @@
     args['right'] = "javascript";
     args['left']= "javascript";
     args['line_count'] = 50;
+    header_lookup =  { "example" : "", 
+                        "example_activity": "Activity",
+                        "example_answer" : "Sample Answer",
+                        "example_reading": "To Learn More",
+                        "dict_list": "Dictionaries and Lists"}
     var lookup ={};
     
     function initialize(){
@@ -92,9 +97,16 @@
          if ( i == "title"){
              continue;
          }
+       
+            
+         var header  = header_lookup[i]
+         if (header != undefined){
+            resultHTML += `<h2>${header}</h2>`
+         }
+         
+        
         resultHTML +=
          `<div id="${i}-${args[side]}-${side}">
-            <h2>${i}</h2><br/>
             <p>${highlight(language_sections[i], side)}</p>
           </div>
           `
@@ -129,14 +141,23 @@
             var lang_sections = langs[h].sections
             
             for(j in lang_sections){
-                // make html for sections with left, right , and instructions
-                makeSection(lang_sections[j].title,lang_sections[j].instructions);// this is only done once per load
+                var my_title =  header_lookup[lang_sections[j].title]
+                if(my_title == undefined){
+
+                     // make html for sections with left, right , and instructions
+                    makeSection(lang_sections[j].title,lang_sections[j].instructions,lang_sections[j].title);// this is only done once per load
+                }
+                else{
+                     makeSection(lang_sections[j].title,lang_sections[j].instructions,my_title);// this is only done once per load
+                }
+              
                 
             }
         }
         else{
             // put sections in a quick lookup
             var lang_sections = langs[h].sections
+
             for(j in lang_sections){
                 section_lookup[lang_sections[j].title] = lang_sections[j]
             }
@@ -150,12 +171,12 @@
      // have an info on the main part
    
  }
- function makeSection(title, instructions){
+ function makeSection(title, instructions, header){
  var inHTML = `
 <div class="container">
     <div class="row">
         <div class= "col" align="left">
-            <h2> ${capitalize(title)} : Instructions</h2>
+            <h2> ${capitalize(header)} : Instructions</h2>
         </div>
     </div>
     <div class="row">
@@ -210,6 +231,8 @@ function oninit(){
     );
 }
 window.onload =oninit();
+
+
 </script>
 
 
@@ -239,7 +262,7 @@ window.onload =oninit();
 <br/>
 <div id='global-container'></div> <!-- This is where all the javascript goes. See initialize()-->
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
