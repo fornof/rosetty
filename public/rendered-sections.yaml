@@ -2,14 +2,36 @@
 languages:
 - language_name: global
   sections:
+  - title: rosetty
+    instructions:
+    - "Hello you! Welcome to this experiment in writing documentation! I hope to \n\
+      steadily add languages and sections all on one page for easy reference and saving.\n\
+      <h3>What is Rosetty?</h3> \nRosetty is a programming language documentation\
+      \ tool for learning new programming languages. <br>\nThe start of the project\
+      \ will cover commonalities such as variables, dictionaries and lists, and functions.\n\
+      <br> This could easily be modified to talk about more advanced topics like threading\
+      \ and inheritance by comparing two languages\nat a time.\nEach exercise follows\
+      \ the format of : example, find more examples, make example. <br>\nEach lesson\
+      \ builds on the previous, and assumes no knowledge of programming to start.\
+      \ \nI hope you will find this useful. \n<br/><a target=\"blank\" href = \"http://github.com/fornof/rosetty\"\
+      >you can find the source on Github</a>\n<br/>The hardest part of learning a\
+      \ new language is asking the right questions. The \"To Learn More\" sections\
+      \ are there\nso you can see what questions to ask.\n<br/>With that in mind,\
+      \ let us take a look at a building block of programming: variables. \n"
   - title: variables
     instructions:
-    - "variables can be ATOMIC TYPES, or they can be Objects which hold Atomics.\n\
-      Atomic - meaning they cannot be split into smaller types<br/>\nAtomic types\
-      \ are int, double, float, char , long, half, short<br/>\nVariables must be cast\
-      \ in Python and javascript because these are non typed \nor autotyped languages\
-      \ <br/>\nGoogle search <a target=\"blank\" href=\"https://www.google.com/search?q=type+casting+in+javascript\"\
-      >Type casting in JavaScript</a>.\n"
+    - "Variables are used to store data for easy reference later. In assembly , variables\
+      \ are stored in registers;\n<a target=\"blank\" href=\"https://google.com/search?q=Assembly\
+      \ registers and how they work\">Google Search Assembly registers and how they\
+      \ work</a> <br/>\nIn Object Oriented Programming, variables are stored in large\
+      \ memory blocks given to a program by the operating system \nWe will just focus\
+      \ on how variables are used.\nvariables can be ATOMIC TYPES, or they can be\
+      \ OBJECTS which can hold ATOMIC TYPES.\nAtomic - meaning they cannot be split\
+      \ into smaller types<br/>\nAtomic types are int, double, float, char , long,\
+      \ half, and short<br/>\nVariables must be cast in Python and javascript because\
+      \ these are non typed \nor autotyped languages <br/>\n<a target=\"blank\" href=\"\
+      https://google.com/search?q=Type casting in JavaScript\">Google Search Type\
+      \ casting in JavaScript</a>.\n"
   - title: dict_list
     instructions:
     - "Dictionaries are key value pairs that are in an unsorted list. If a key is\
@@ -27,6 +49,14 @@ languages:
       \ return a variable with the keyword \"return\" and can send back a variable\
       \ to the function that called this one.\nfunctions are in {} parens in javascript,\
       \ and tabs /spaces in python.\n"
+  - title: about
+    instructions: <br> A long time ago there was a king with many different languages
+      spoken in his kingdom. He decided to issue a decree/laws in all the languages
+      of his kingdom. This was put on stone and is commonly referred to as the Rosetta
+      Stone. <a target="blank" href="https://google.com/search?q=Rosetta Stone">Google
+      Search Rosetta Stone</a> .The stone helped linguists decipher one language by
+      looking at another more recognizeable one. I picked python as my most recognizeable
+      backend language to start and also used javascript since it is untyped
 - language_name: javascript
   sections:
   - title: variables
@@ -57,9 +87,10 @@ languages:
       class="k">new</span> <span class="nx">MyClass</span><span class="p">()</span><br
       /></pre></div><br /></div>
     example_reading:
-    - '<p>google search "javascript docs variables"
-
-      google search "JSON in javascript from string"</p>'
+    - "<p><a target=\"blank\" href=\"https://google.com/search?q=javascript docs variables\"\
+      >Google Search javascript docs variables</a> \n<br/><br/>\n<a target=\"blank\"\
+      \ href=\"https://google.com/search?q=JSON in javascript from string\">Google\
+      \ Search JSON in javascript from string</a></p>"
   - title: dict_list
     example_header:
     - <p>Dictionaries and Lists in Javascript</p>
@@ -158,8 +189,8 @@ languages:
       \ <span class=\"p\">{</span><span class=\"s2\">&quot;name&quot;</span> <span\
       \ class=\"o\">:</span> <span class=\"s2\">&quot;elsa&quot;</span><span class=\"\
       p\">,</span> <span class=\"s2\">&quot;mood&quot;</span> <span class=\"o\">:</span>\
-      \ <span class=\"s2\">&quot;happy&quot;</span><span class=\"p\">,</span> <span\
-      \ class=\"s2\">&quot;profession&quot;</span><br />     <span class=\"o\">:</span>\
+      \ <span class=\"s2\">&quot;happy&quot;</span><span class=\"p\">,</span> <br\
+      \ />  <span class=\"s2\">&quot;profession&quot;</span> <span class=\"o\">:</span>\
       \ <span class=\"s2\">&quot;princess&quot;</span><span class=\"p\">,</span> <span\
       \ class=\"s2\">&quot;friends&quot;</span><span class=\"o\">:</span> <span class=\"\
       p\">[]}</span><br /><span class=\"kd\">var</span> <span class=\"nx\">anna</span>\
@@ -167,19 +198,18 @@ languages:
       \ <span class=\"o\">:</span> <span class=\"s2\">&quot;anna&quot;</span><span\
       \ class=\"p\">,</span> <span class=\"s2\">&quot;mood&quot;</span> <span class=\"\
       o\">:</span> <span class=\"s2\">&quot;moody&quot;</span><span class=\"p\">,</span>\
-      \ <span class=\"s2\">&quot;professio</span><br /><span class=\"s2\">  n&quot;</span>\
-      \ <span class=\"o\">:</span> <span class=\"s2\">&quot;princess&quot;</span><span\
-      \ class=\"p\">,</span> <span class=\"s2\">&quot;friends&quot;</span><span class=\"\
-      o\">:</span><span class=\"p\">[</span><span class=\"s2\">&quot;mom&quot;</span><span\
+      \ <br />  <span class=\"s2\">&quot;profession&quot;</span> <span class=\"o\"\
+      >:</span> <span class=\"s2\">&quot;princess</span><br /><span class=\"s2\">\
+      \ &quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;friends&quot;</span><span\
+      \ class=\"o\">:</span><span class=\"p\">[</span><span class=\"s2\">&quot;mom&quot;</span><span\
       \ class=\"p\">,</span><span class=\"s2\">&quot;dad&quot;</span><span class=\"\
       p\">,</span><span class=\"s2\">&quot;olaf&quot;</span><span class=\"p\">,</span><span\
       \ class=\"s2\">&quot;sven&quot;</span><span class=\"p\">]}</span><br /></pre></div><br\
-      \ /></div>\n\n<p><br/>\nwrite a function to print out how many friends elsa\
-      \ and anna have\n<br/></p>"
+      \ /></div>\n\n<p>write a function to print out how many friends elsa and anna\
+      \ have</p>"
     example_answer:
-    - '<p>in javascript, the answer to the activity is:</p>
-
-      <div class="code"><div class="highlight"><pre><span></span><span class="kd">function</span>
+    - <div class="code"><div class="highlight"><pre><span></span><span class="c1">//in
+      javascript, the answer to the activity is:</span><br /><span class="kd">function</span>
       <span class="nx">personReader</span><span class="p">(</span><span class="nx">person</span><span
       class="p">){</span><br /><span class="kd">var</span> <span class="nx">friend_count</span><span
       class="o">=</span> <span class="nx">person</span><span class="p">[</span><span
@@ -190,7 +220,7 @@ languages:
       class="p">(</span><span class="nx">person</span><span class="p">[</span><span
       class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span>
       <span class="s2">&quot; is cool\n and &quot;</span> <span class="o">+</span><br
-      />    <span class="nx">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span
+      />   <span class="nx">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span
       class="p">]</span> <br /><span class="o">+</span><span class="s2">&quot; has
       &quot;</span> <span class="o">+</span>  <span class="nx">friend_count</span>
       <span class="o">+</span><span class="s2">&quot; friends&quot;</span> <span class="p">)</span><br
@@ -202,9 +232,29 @@ languages:
       <span class="o">+</span> <span class="nx">person</span><span class="p">[</span><span
       class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span><span
       class="s2">&quot; has &quot;</span> <span class="o">+</span><span class="nx">friend_count</span>
-      <span class="o">+</span><span class="s2">&quot; friends&quot;</span> <span class="p">)</span><br
-      />  <span class="p">}</span><br /><span class="p">}</span> <br /></pre></div><br
-      /></div>'
+      <span class="o">+</span><span class="s2">&quot; friends&quot;</span> <span class="p">);</span><br
+      />  <span class="p">}</span><br /><span class="p">}</span> <br /><span class="c1">//
+      call/activate the function like this</span><br /><span class="kd">var</span>
+      <span class="nx">elsa</span> <span class="o">=</span> <span class="p">{</span><span
+      class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;elsa&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;mood&quot;</span> <span class="o">:</span>
+      <span class="s2">&quot;happy&quot;</span><span class="p">,</span> <br />  <span
+      class="s2">&quot;profession&quot;</span> <span class="o">:</span> <span class="s2">&quot;princess&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;friends&quot;</span><span class="o">:</span>
+      <span class="p">[]};</span><br /><span class="kd">var</span> <span class="nx">anna</span>
+      <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span>
+      <span class="o">:</span> <span class="s2">&quot;anna&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;mood&quot;</span> <span class="o">:</span> <span class="s2">&quot;moody&quot;</span><span
+      class="p">,</span> <br />  <span class="s2">&quot;profession&quot;</span> <span
+      class="o">:</span> <span class="s2">&quot;princess</span><br /><span class="s2">
+      &quot;</span><span class="p">,</span> <span class="s2">&quot;friends&quot;</span><span
+      class="o">:</span><span class="p">[</span><span class="s2">&quot;mom&quot;</span><span
+      class="p">,</span><span class="s2">&quot;dad&quot;</span><span class="p">,</span><span
+      class="s2">&quot;olaf&quot;</span><span class="p">,</span><span class="s2">&quot;sven&quot;</span><span
+      class="p">]};</span><br /><span class="nx">personReader</span><span class="p">(</span><span
+      class="nx">anna</span><span class="p">);</span><br /><span class="nx">personReader</span><span
+      class="p">(</span><span class="nx">elsa</span><span class="p">);</span><br /><span
+      class="p">;</span><br /><span class="p">;</span><br /></pre></div><br /></div>
 - language_name: python
   sections:
   - title: variables
@@ -229,13 +279,14 @@ languages:
       /><span class="n">foo</span> <span class="o">=</span> <span class="n">MyClass</span><span
       class="p">()</span><br /></pre></div><br /></div>
     example_reading:
-    - <p>google search "python docs variables"</p>
+    - <p><a target="blank" href="https://google.com/search?q=python docs variables">Google
+      Search python docs variables</a></p>
   - title: dict_list
-    example_header: <p>None</p>
+    example_header:
+    - <p>Dictionaries and Lists in Python:</p>
     example:
-    - '<div class="code"><div class="highlight"><pre><span></span><span class="n">python</span>
-      <span class="n">lists</span> <span class="n">look</span> <span class="n">like</span><span
-      class="p">:</span>  <br /><span class="n">myvar</span> <span class="o">=</span>
+    - '<div class="code"><div class="highlight"><pre><span></span><span class="c1">#python
+      lists look like:  </span><br /><span class="n">myvar</span> <span class="o">=</span>
       <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span
       class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span
       class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span
@@ -249,7 +300,7 @@ languages:
       class="p">:</span><span class="s2">&quot;bar&quot;</span> <span class="p">,</span>
       <span class="s2">&quot;elsa&quot;</span> <span class="p">:</span> <span class="s2">&quot;moody&quot;</span>
       <span class="p">,</span> <span class="s2">&quot;inner&quot;</span><span class="p">:</span><br
-      />  <span class="p">{</span><span class="s2">&quot;inside&quot;</span><span
+      />    <span class="p">{</span><span class="s2">&quot;inside&quot;</span><span
       class="p">:</span><span class="s2">&quot;cozy&quot;</span><span class="p">},</span>
       <span class="s2">&quot;list&quot;</span><span class="p">:[</span><span class="s2">&quot;foo&quot;</span><span
       class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span
@@ -292,9 +343,12 @@ languages:
       class="s2">&quot;sven&quot;</span><span class="p">]}</span><br /></pre></div><br
       /></div>
     example_reading:
-    - '<p>google search: is python char list a string?
+    - '<p><a target="blank" href="https://google.com/search?q=is python char list
+      a string?">Google Search is python char list a string?</a>
 
-      google search: "get() instead of calling brackets in python" </p>'
+      <a target="blank" href="https://google.com/search?q=get() for dictionaries instead
+      of calling brackets in python">Google Search get() for dictionaries instead
+      of calling brackets in python</a></p>'
   - title: functions
     example_header:
     - '<p>Functions look like:                 </p>'
@@ -356,38 +410,48 @@ languages:
       <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span
       class="p">):</span><br />  <span class="k">print</span><span class="p">(</span><span
       class="n">bar</span><span class="p">)</span>\<span class="n">n</span>\<span
-      class="n">n</span><br /><span class="n">anna</span> <span class="o">=</span>
-      <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span>
-      <span class="s2">&quot;anna&quot;</span><span class="p">,</span> <span class="s2">&quot;mood&quot;</span>
-      <span class="p">:</span> <span class="s2">&quot;moody&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;profession&quot;</span> <span class="p">:</span><br />  <span
-      class="s2">&quot;princess&quot;</span><span class="p">,</span> <span class="s2">&quot;friends&quot;</span><span
-      class="p">:[</span><span class="s2">&quot;mom&quot;</span><span class="p">,</span><span
-      class="s2">&quot;dad&quot;</span><span class="p">,</span><span class="s2">&quot;olaf&quot;</span><span
-      class="p">,</span><span class="s2">&quot;sven&quot;</span><span class="p">]</span><br
-      />  <span class="p">}</span>  <span class="n">person_reader</span><span class="p">(</span><span
-      class="n">anna</span><span class="p">)</span><br /><span class="k">def</span>
-      <span class="nf">person_reader</span><span class="p">(</span><span class="n">person</span><span
-      class="p">):</span><br />  <span class="n">friend_count</span> <span class="o">=</span>
-      <span class="nb">len</span><span class="p">(</span><span class="n">person</span><span
-      class="p">[</span><span class="s2">&quot;friends&quot;</span><span class="p">]</span>
-      <span class="p">)</span><br />  <span class="k">if</span> <span class="n">friend_count</span>
-      <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span><br
-      />    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span
-      class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-      <span class="o">+</span> <span class="s2">&quot; is cool</span><span class="se">\n</span><span
-      class="s2"> and &quot;</span> <span class="o">+</span> <span class="n">person</span><span
+      class="n">n</span><br />&nbsp;<br /><span class="k">def</span> <span class="nf">person_reader</span><span
+      class="p">(</span><span class="n">person</span><span class="p">):</span><br
+      />  <span class="n">friend_count</span> <span class="o">=</span> <span class="nb">len</span><span
+      class="p">(</span><span class="n">person</span><span class="p">[</span><span
+      class="s2">&quot;friends&quot;</span><span class="p">]</span> <span class="p">)</span><br
+      />  <span class="k">if</span> <span class="n">friend_count</span> <span class="o">&gt;</span>
+      <span class="mi">0</span><span class="p">:</span><br />    <span class="k">print</span><span
+      class="p">(</span><span class="n">person</span><span class="p">[</span><span
+      class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span>
+      <span class="s2">&quot; is cool</span><span class="se">\n</span><span class="s2">
+      and &quot;</span> <span class="o">+</span> <span class="n">person</span><span
       class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
       <span class="o">+</span><span class="s2">&quot; </span><br />    <span class="n">has</span>
       <span class="s2">&quot; +str(friend_count) +&quot;</span> <span class="n">friends</span><span
-      class="s2">&quot; )</span><br /><span class="k">else</span><span class="p">:</span><br
-      />  <span class="k">print</span><span class="p">(</span><span class="n">person</span><span
+      class="s2">&quot; )</span><br />  <span class="k">else</span><span class="p">:</span><br
+      />    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span
       class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
       <span class="o">+</span> <span class="s2">&quot; is cool</span><span class="se">\n</span><span
       class="s2"> However, sadly to say &quot;</span> <span class="o">+</span> <br
-      />  <span class="n">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span
+      />    <span class="n">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span
       class="p">]</span> <span class="o">+</span><span class="s2">&quot; has &quot;</span>
       <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span
       class="n">friend_count</span><span class="p">)</span> <span class="o">+</span><span
-      class="s2">&quot; friends&quot;</span> <span class="p">)</span><br /></pre></div><br
-      /></div>
+      class="s2">&quot; friends&quot;</span> <span class="p">)</span><br />&nbsp;<br
+      /><br />&nbsp;<br /><span class="c1"># call/activate this way</span><br /><span
+      class="n">elsa</span> <span class="o">=</span> <span class="p">{</span><span
+      class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;elsa&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;mood&quot;</span> <span class="p">:</span>
+      <span class="s2">&quot;happy&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span>
+      <span class="p">:</span><br />     <span class="s2">&quot;princess&quot;</span><span
+      class="p">,</span> <span class="s2">&quot;friends&quot;</span><span class="p">:</span>
+      <span class="p">[]}</span><br /><span class="n">anna</span> <span class="o">=</span>
+      <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span>
+      <span class="s2">&quot;anna&quot;</span><span class="p">,</span> <span class="s2">&quot;mood&quot;</span>
+      <span class="p">:</span> <span class="s2">&quot;moody&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;profession&quot;</span><br />   <span class="p">:</span>
+      <span class="s2">&quot;princess&quot;</span><span class="p">,</span> <span class="s2">&quot;friends&quot;</span><span
+      class="p">:[</span><span class="s2">&quot;mom&quot;</span><span class="p">,</span><span
+      class="s2">&quot;dad&quot;</span><span class="p">,</span><span class="s2">&quot;olaf&quot;</span><span
+      class="p">,</span><span class="s2">&quot;sven&quot;</span><span class="p">]}</span>  <br
+      /><span class="n">person_reader</span><span class="p">(</span><span class="n">anna</span><span
+      class="p">)</span><br /><span class="n">person_reader</span><span class="p">(</span><span
+      class="n">elsa</span><span class="p">)</span><br /><span class="c1"># end</span><br
+      /><span class="c1"># (extra space so scrollbar doesn&#39;t hide anything important.)</span><br
+      /></pre></div><br /></div>

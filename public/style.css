@@ -52,8 +52,8 @@
     flex-grow: 1;
 }
 pre {   
-   
-       
+   width:inherit;
+/*        
         overflow-y: scroll;
         overflow-x: auto;
         overflow: scroll;
@@ -61,7 +61,7 @@ pre {
         white-space: -pre-wrap;
         white-space: -o-pre-wrap;
         white-space:pre-wrap;
-        word-wrap: break-all;
+        word-wrap: break-all; */
      }
 .code-default {
     color:darkgreen;
